@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title id="meta-title">Ahmed Gomaa — Data Analyst | Turning Raw Data Into Business Decisions</title>
+<meta id="meta-desc" name="description" content="Ahmed Gomaa is a data analyst specializing in SQL, Python, Power BI and Excel — HR Analytics, RFM segmentation, KPI dashboards and business reporting.">
+<meta property="og:title" content="Ahmed Gomaa — Data Analyst">
+<meta property="og:description" content="Turning raw data into business decisions. SQL · Python · Power BI · Excel.">
+<meta property="og:type" content="website">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=IBM+Plex+Sans+Arabic:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#0F1B33;
+    --navy:#14264D;
+    --blue:#3D63FF;
+    --blue-soft:#E7ECFF;
+    --paper:#FAFAF9;
+    --panel:#F1F3F7;
+    --line:#E2E5EC;
+    --text:#171B26;
+    --text-dim:#5B6373;
+    --white:#FFFFFF;
+    --mono:'JetBrains Mono', monospace;
+    --disp:'Space Grotesk', sans-serif;
+    --body:'Inter', sans-serif;
+    --radius:18px;
+    --champions:#1F7A4C;
+    --loyal:#3D63FF;
+    --potential:#E8A93D;
+    --atrisk:#7A4FD9;
+    --sleep:#D9622F;
+    --lost:#B9BECB;
+  }
+  [data-theme="dark"]{
+    --ink:#EAEDF6;
+    --navy:#0A0F1E;
+    --paper:#0A0E17;
+    --panel:#111726;
+    --line:#232B3D;
+    --text:#E7EAF2;
+    --text-dim:#8A93A8;
+    --white:#0F1526;
+    --blue-soft:#16203F;
+  }
+  html[dir="rtl"]{ --disp:'IBM Plex Sans Arabic', sans-serif; --body:'IBM Plex Sans Arabic', sans-serif; }
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper); color:var(--text); font-family:var(--body); transition:background .3s ease, color .3s ease; overflow-x:hidden;}
+  body.modal-open-lock{overflow:hidden;}
+  img{max-width:100%; display:block;}
+  a{color:inherit; text-decoration:none;}
+  ::selection{background:var(--blue); color:#fff;}
+  .wrap{max-width:1180px; margin:0 auto; padding:0 28px;}
+  h1,h2,h3,h4{font-family:var(--disp); line-height:1.05; letter-spacing:-0.02em; color:var(--text);}
+  .eyebrow{font-family:var(--mono); font-size:12.5px; letter-spacing:.14em; text-transform:uppercase; color:var(--blue); display:flex; align-items:center; gap:10px; margin-bottom:16px;}
+  .eyebrow::before{content:''; width:22px; height:1px; background:var(--blue);}
+  html[dir="rtl"] .eyebrow::before{content:none;}
+  html[dir="rtl"] .eyebrow::after{content:''; width:22px; height:1px; background:var(--blue);}
+  p{color:var(--text-dim); line-height:1.7; font-size:16px;}
+  section{padding:120px 0;}
+  @media(max-width:768px){ section{padding:76px 0;} .wrap{padding:0 20px;} }
+
+  /* NAV */
+  header{position:fixed; top:0; left:0; right:0; z-index:100; backdrop-filter:blur(14px); background:color-mix(in srgb, var(--paper) 82%, transparent); border-bottom:1px solid var(--line); transition:background .3s;}
+  nav{display:flex; align-items:center; justify-content:space-between; padding:18px 28px; max-width:1180px; margin:0 auto; position:relative;}
+  .logo{font-family:var(--disp); font-weight:700; font-size:19px; letter-spacing:-0.02em;}
+  .logo span{color:var(--blue);}
+  .nav-links{display:flex; gap:34px; font-size:14.5px; font-weight:500;}
+  .nav-links a{color:var(--text-dim); transition:color .2s;}
+  .nav-links a:hover{color:var(--text);}
+  .nav-right{display:flex; align-items:center; gap:14px;}
+  .icon-btn{width:38px; height:38px; border-radius:10px; border:1px solid var(--line); display:flex; align-items:center; justify-content:center; cursor:pointer; background:var(--white); font-size:13px; font-family:var(--mono); font-weight:600; color:var(--text-dim); transition:all .2s;}
+  .icon-btn:hover{border-color:var(--blue); color:var(--blue);}
+  .cta{background:var(--navy); color:#fff; padding:11px 22px; border-radius:100px; font-size:14px; font-weight:600; white-space:nowrap; transition:transform .2s, box-shadow .2s;}
+  .cta:hover{transform:translateY(-2px); box-shadow:0 10px 24px -8px color-mix(in srgb, var(--blue) 60%, transparent);}
+  .burger{display:none;}
+  @media(max-width:900px){
+    .nav-links{display:none;}
+    .nav-links.active{display:flex; position:absolute; top:64px; left:0; right:0; background:var(--paper); flex-direction:column; padding:20px; border-bottom:1px solid var(--line); gap:16px; box-shadow:0 20px 30px -20px rgba(0,0,0,.2);}
+    .burger{display:flex; width:38px; height:38px; align-items:center; justify-content:center; border:1px solid var(--line); border-radius:10px; cursor:pointer; background:var(--white);}
+  }
+  @media(max-width:480px){
+    nav{padding:14px 14px;}
+    .logo{font-size:16px;}
+    .nav-right{gap:6px;}
+    .icon-btn{width:32px; height:32px; font-size:10.5px;}
+    .burger{width:32px; height:32px; font-size:15px;}
+    .cta{padding:8px 12px; font-size:12px;}
+  }
+  @media(max-width:360px){
+    .cta{padding:8px 10px; font-size:11px;}
+    .nav-right{gap:5px;}
+  }
+
+  /* Graceful placeholder shown by JS when a dashboard image fails to load */
+  .dash-placeholder{ padding:60px 20px; text-align:center; font-family:var(--mono); font-size:12.5px; color:#8A93BF; border:1px dashed rgba(255,255,255,.2); border-radius:10px; }
+
+  /* HERO */
+  .hero{padding:190px 0 100px; position:relative; overflow:hidden;}
+  .hero-grid{display:grid; grid-template-columns:1.05fr .95fr; gap:60px; align-items:center;}
+  @media(max-width:960px){ .hero-grid{grid-template-columns:1fr;} .hero{padding-top:150px;} }
+  .hero h1{font-size:clamp(38px,5.4vw,64px); font-weight:600;}
+  .hero h1 .accent{color:var(--blue);}
+  .hero-sub{font-size:18px; color:var(--text-dim); margin:22px 0 34px; max-width:480px; line-height:1.65;}
+  .hero-ctas{display:flex; gap:14px; flex-wrap:wrap;}
+  .btn-primary{background:var(--blue); color:#fff; padding:15px 28px; border-radius:100px; font-weight:600; font-size:15px; display:inline-flex; align-items:center; gap:8px; transition:transform .2s, box-shadow .2s; border:none; cursor:pointer;}
+  .btn-primary:hover{transform:translateY(-2px); box-shadow:0 14px 30px -10px color-mix(in srgb, var(--blue) 70%, transparent);}
+  .btn-outline{border:1px solid var(--line); padding:15px 28px; border-radius:100px; font-weight:600; font-size:15px; transition:all .2s;}
+  .btn-outline:hover{border-color:var(--blue); color:var(--blue);}
+  .hero-meta{display:flex; gap:30px; margin-top:46px; flex-wrap:wrap;}
+  .hero-meta div{font-family:var(--mono); font-size:12px; color:var(--text-dim); text-transform:uppercase; letter-spacing:.08em;}
+  .hero-meta strong{display:block; font-family:var(--disp); font-size:22px; color:var(--text); font-weight:600; letter-spacing:0; text-transform:none; margin-bottom:2px;}
+
+  .rfm-viz{position:relative; aspect-ratio:1/1; max-width:460px; margin-inline-start:auto;}
+  .rfm-viz svg{width:100%; height:100%;}
+  .rfm-legend{position:absolute; bottom:-6px; left:0; right:0; display:flex; flex-wrap:wrap; gap:8px 14px; justify-content:center; font-family:var(--mono); font-size:10.5px; color:var(--text-dim);}
+  .rfm-legend span{display:inline-flex; align-items:center; gap:6px;}
+  .rfm-legend i{width:8px; height:8px; border-radius:50%; display:inline-block;}
+
+  .sec-head{max-width:640px; margin-bottom:60px;}
+  .sec-head h2{font-size:clamp(28px,3.6vw,42px); font-weight:600;}
+  .sec-head p{margin-top:16px; font-size:17px;}
+
+  .about-grid{display:grid; grid-template-columns:.9fr 1.1fr; gap:70px; align-items:start;}
+  @media(max-width:860px){ .about-grid{grid-template-columns:1fr; gap:40px;} }
+  .about-tags{display:flex; flex-wrap:wrap; gap:10px; margin-top:28px;}
+  .tag{border:1px solid var(--line); border-radius:100px; padding:8px 16px; font-size:13.5px; font-family:var(--mono); color:var(--text-dim); background:var(--white);}
+  .stat-card{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:22px; text-align:center;}
+  .stat-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:20px;}
+  .stat-card strong{font-family:var(--disp); font-size:24px; display:block; color:var(--blue);}
+  .stat-card span{font-size:12px; color:var(--text-dim); font-family:var(--mono); text-transform:uppercase; letter-spacing:.06em;}
+
+  .services-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
+  @media(max-width:860px){ .services-grid{grid-template-columns:1fr 1fr;} }
+  @media(max-width:560px){ .services-grid{grid-template-columns:1fr;} }
+  .service-card{background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:30px 26px; transition:transform .25s, border-color .25s, box-shadow .25s;}
+  .service-card:hover{transform:translateY(-4px); border-color:var(--blue); box-shadow:0 20px 40px -20px rgba(20,38,77,.18);}
+  .service-icon{width:44px; height:44px; border-radius:12px; background:var(--blue-soft); display:flex; align-items:center; justify-content:center; margin-bottom:20px; color:var(--blue); font-weight:700; font-family:var(--mono);}
+  .service-card h4{font-size:18px; font-weight:600; margin-bottom:10px;}
+  .service-card p{font-size:14.5px; margin-bottom:14px;}
+  .deliver{font-family:var(--mono); font-size:11.5px; color:var(--text-dim); text-transform:uppercase; letter-spacing:.05em; border-top:1px solid var(--line); padding-top:14px;}
+
+  .skills-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px;}
+  @media(max-width:900px){ .skills-grid{grid-template-columns:1fr 1fr;} }
+  @media(max-width:560px){ .skills-grid{grid-template-columns:1fr;} }
+  .skill-card{background:var(--panel); border-radius:var(--radius); padding:26px 22px; border:1px solid var(--line);}
+  .skill-card h4{font-family:var(--mono); font-size:12.5px; text-transform:uppercase; letter-spacing:.08em; color:var(--blue); margin-bottom:16px; font-weight:600;}
+  .skill-card ul{list-style:none;}
+  .skill-card li{font-size:14.5px; color:var(--text); padding:7px 0; border-top:1px solid var(--line);}
+  .skill-card li:first-child{border-top:none;}
+
+  /* Project cards (entry points) */
+  .project-cards{display:grid; grid-template-columns:1fr 1fr; gap:24px;}
+  @media(max-width:760px){ .project-cards{grid-template-columns:1fr;} }
+  .project-card{border-radius:26px; padding:42px 36px; cursor:pointer; position:relative; overflow:hidden; color:#fff; transition:transform .3s ease, box-shadow .3s ease; min-height:280px; display:flex; flex-direction:column; justify-content:space-between; border:none; text-align:start; width:100%; font-family:inherit;}
+  .project-card:hover, .project-card:focus-visible{transform:translateY(-6px); box-shadow:0 34px 60px -22px rgba(0,0,0,.4); outline:none;}
+  .project-card.rfm{background:linear-gradient(135deg,#0F2E52 0%, #3D63FF 55%, #1F9E7A 130%);}
+  .project-card.hr{background:linear-gradient(135deg,#14264D 0%, #5A3FA0 55%, #D9622F 130%);}
+  .project-card .pc-tag{font-family:var(--mono); font-size:12px; letter-spacing:.12em; text-transform:uppercase; opacity:.88;}
+  .project-card h3{color:#fff; font-size:27px; margin:14px 0 10px; font-weight:600;}
+  .project-card p{color:rgba(255,255,255,.86); font-size:14.5px; max-width:340px;}
+  .project-card .pc-stat{font-family:var(--disp); font-size:36px; font-weight:700; margin-top:20px;}
+  .project-card .pc-stat span{font-family:var(--mono); font-size:11px; font-weight:500; display:block; text-transform:uppercase; letter-spacing:.06em; opacity:.8; margin-top:4px;}
+  .project-card .pc-cta{margin-top:24px; display:inline-flex; align-items:center; gap:8px; font-weight:600; font-size:14px;}
+  .project-card .pc-cta .arr{transition:transform .2s;}
+  html[dir="rtl"] .project-card .pc-cta .arr{transform:scaleX(-1);}
+  .project-card:hover .pc-cta .arr{transform:translateX(4px);}
+  html[dir="rtl"] .project-card:hover .pc-cta .arr{transform:scaleX(-1) translateX(4px);}
+
+  /* Modal (full case study) */
+  .modal-overlay{position:fixed; inset:0; background:rgba(8,11,18,.72); backdrop-filter:blur(6px); display:none; align-items:flex-start; justify-content:center; z-index:300; padding:60px 16px; overflow-y:auto;}
+  .modal-overlay.open{display:flex;}
+  .modal{max-width:920px; width:100%; margin:auto; position:relative;}
+  .modal-close{position:absolute; top:-16px; inset-inline-end:-16px; width:42px; height:42px; border-radius:50%; background:#fff; color:var(--navy); display:flex; align-items:center; justify-content:center; font-size:19px; cursor:pointer; border:none; box-shadow:0 10px 24px rgba(0,0,0,.35); z-index:2;}
+
+  .case{background:var(--navy); border-radius:28px; padding:56px 50px; color:#fff; position:relative; overflow:hidden;}
+  @media(max-width:700px){ .case{padding:36px 22px; border-radius:20px;} }
+  .case h2, .case h3{color:#fff;}
+  .case p{color:#B9C2DC;}
+  .case-top{display:flex; justify-content:space-between; align-items:flex-start; gap:24px; flex-wrap:wrap; margin-bottom:32px;}
+  .case-links{display:flex; gap:12px; flex-wrap:wrap;}
+  .case-links a{border:1px solid rgba(255,255,255,.22); padding:12px 20px; border-radius:100px; font-size:13.5px; font-weight:600; display:inline-flex; align-items:center; gap:8px; transition:all .2s;}
+  .case-links a.primary{background:#fff; color:var(--navy); border-color:#fff;}
+  .case-links a:hover{border-color:#fff; transform:translateY(-2px);}
+  .case-block{border-top:1px solid rgba(255,255,255,.14); padding:30px 0; display:grid; grid-template-columns:200px 1fr; gap:32px;}
+  @media(max-width:760px){ .case-block{grid-template-columns:1fr; gap:12px;} }
+  .case-block .num{font-family:var(--mono); font-size:13px; color:#7C8CBF; text-transform:uppercase; letter-spacing:.1em;}
+  .case-block h3{font-size:21px; font-weight:600; margin-bottom:12px;}
+  .case-block ul{padding-inline-start:20px; color:#B9C2DC;}
+  .case-block li{margin-bottom:8px; font-size:14.5px; line-height:1.6;}
+  .kpi-row{display:grid; grid-template-columns:repeat(4,1fr); gap:14px; margin-top:8px;}
+  @media(max-width:700px){ .kpi-row{grid-template-columns:1fr 1fr;} }
+  .kpi{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:14px; padding:16px;}
+  .kpi strong{font-family:var(--disp); font-size:22px; display:block; color:#fff;}
+  .kpi span{font-family:var(--mono); font-size:10.5px; color:#8A93BF; text-transform:uppercase;}
+  .flow{display:flex; align-items:center; flex-wrap:wrap; gap:10px; font-family:var(--mono); font-size:12.5px; color:#B9C2DC;}
+  .flow span{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.14); padding:8px 14px; border-radius:100px;}
+  .flow .arrow{color:#5C6899;}
+  .seg-pills{display:flex; flex-wrap:wrap; gap:10px;}
+  .seg-pill{background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); padding:8px 16px; border-radius:100px; font-size:13px; display:flex; align-items:center; gap:8px; color:#fff;}
+  .seg-pill i{width:8px; height:8px; border-radius:50%;}
+  .dash-shot{margin-top:20px; border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.04); padding:10px;}
+  .dash-shot img{border-radius:10px; width:100%; height:auto;}
+
+  .timeline{display:flex; flex-direction:column; border-inline-start:1px solid var(--line);}
+  .t-step{display:grid; grid-template-columns:150px 1fr; gap:28px; padding:26px 0; border-top:1px solid var(--line); position:relative;}
+  .t-step:first-child{border-top:none;}
+  .t-step .t-dot{position:absolute; inset-inline-start:-6px; top:32px; width:11px; height:11px; border-radius:50%; background:var(--blue); border:3px solid var(--paper);}
+  .t-label{font-family:var(--mono); font-size:13px; color:var(--text-dim); padding-inline-start:20px;}
+  .t-content{padding-inline-start:20px;}
+  .t-content h4{font-size:17px; font-weight:600; margin-bottom:6px;}
+  .t-content p{font-size:14.5px;}
+  @media(max-width:640px){ .t-step{grid-template-columns:1fr; gap:6px;} }
+
+  .contact-wrap{display:grid; grid-template-columns:1fr 1fr; gap:60px;}
+  @media(max-width:860px){ .contact-wrap{grid-template-columns:1fr;} }
+  .contact-list a{display:flex; align-items:center; gap:14px; padding:16px 0; border-top:1px solid var(--line); font-weight:500; font-size:15px; transition:color .2s;}
+  .contact-list a:first-child{border-top:none;}
+  .contact-list a:hover{color:var(--blue);}
+  .contact-list .ic{width:38px; height:38px; border-radius:10px; background:var(--panel); display:flex; align-items:center; justify-content:center; font-family:var(--mono); font-size:12px; color:var(--blue); flex:none;}
+  .contact-list .cl-label{font-family:var(--mono); font-size:11px; text-transform:uppercase; letter-spacing:.06em; color:var(--text-dim); display:block; margin-bottom:2px;}
+  form{display:flex; flex-direction:column; gap:14px;}
+  input,textarea{background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:14px 16px; font-family:var(--body); font-size:14.5px; color:var(--text); outline:none; transition:border-color .2s; width:100%;}
+  input:focus, textarea:focus{border-color:var(--blue);}
+  textarea{min-height:120px; resize:vertical;}
+  .form-note{font-size:12.5px; color:var(--text-dim); font-family:var(--mono);}
+
+  footer{border-top:1px solid var(--line); padding:50px 0; margin-top:20px;}
+  .foot-grid{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;}
+  .foot-links{display:flex; gap:22px; font-size:13.5px; color:var(--text-dim);}
+  .foot-links a:hover{color:var(--blue);}
+
+  .reveal{opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease;}
+  .reveal.in{opacity:1; transform:translateY(0);}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.01ms !important; transition-duration:0.01ms !important;}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <nav>
+    <div class="logo">Ahmed<span>.</span>Gomaa</div>
+    <div class="nav-links" id="navLinks">
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#services" data-i18n="nav.services">Services</a>
+      <a href="#skills" data-i18n="nav.skills">Skills</a>
+      <a href="#case-study" data-i18n="nav.work">Featured Work</a>
+      <a href="#process" data-i18n="nav.process">Process</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </div>
+    <div class="nav-right">
+      <button class="icon-btn" id="themeToggle" title="Toggle theme" aria-label="Toggle theme">☾</button>
+      <button class="icon-btn" id="langToggle" title="Language" aria-label="Toggle language">AR</button>
+      <div class="burger" id="burgerBtn">☰</div>
+      <a href="#contact" class="cta" data-i18n="nav.hire">Hire Me</a>
+    </div>
+  </nav>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <div class="eyebrow" data-i18n="hero.eyebrow">Data Analyst · SQL · Python · Power BI &amp; Excel</div>
+      <h1 data-i18n="hero.title">Ahmed Gomaa — turning raw data into <span class="accent">business decisions.</span></h1>
+      <p class="hero-sub" data-i18n="hero.sub">I clean messy datasets, build the SQL and Python behind the numbers, and package the result into dashboards a business can act on the same day.</p>
+      <div class="hero-ctas">
+        <a href="#contact" class="btn-primary" data-i18n="hero.ctaHire">Hire Me →</a>
+        <a href="#case-study" class="btn-outline" data-i18n="hero.ctaWork">View Case Studies</a>
+      </div>
+      <div class="hero-meta">
+        <div><strong>9,372+</strong><span data-i18n="hero.m1">Customers &amp; Employees Analyzed</span></div>
+        <div><strong>£8.9M</strong><span data-i18n="hero.m2">Revenue Modeled (RFM)</span></div>
+        <div><strong>2</strong><span data-i18n="hero.m3">Full Case Studies Delivered</span></div>
+      </div>
+    </div>
+    <div class="rfm-viz">
+      <svg viewBox="0 0 460 460">
+        <circle cx="230" cy="230" r="180" fill="none" stroke="var(--line)" stroke-width="1" stroke-dasharray="4 4" />
+        <circle cx="230" cy="230" r="120" fill="none" stroke="var(--line)" stroke-width="1" stroke-dasharray="4 4" />
+        <circle cx="230" cy="230" r="60" fill="none" stroke="var(--line)" stroke-width="1" stroke-dasharray="4 4" />
+        <circle cx="230" cy="110" r="30" fill="var(--champions)" opacity="0.9" />
+        <circle cx="335" cy="180" r="24" fill="var(--loyal)" opacity="0.9" />
+        <circle cx="310" cy="305" r="26" fill="var(--potential)" opacity="0.9" />
+        <circle cx="150" cy="325" r="20" fill="var(--atrisk)" opacity="0.9" />
+        <circle cx="115" cy="185" r="16" fill="var(--lost)" opacity="0.9" />
+      </svg>
+      <div class="rfm-legend">
+        <span><i style="background:var(--champions)"></i><span data-i18n="seg.champions">Champions</span></span>
+        <span><i style="background:var(--loyal)"></i><span data-i18n="seg.loyal">Loyal</span></span>
+        <span><i style="background:var(--potential)"></i><span data-i18n="seg.potential">Potential</span></span>
+        <span><i style="background:var(--atrisk)"></i><span data-i18n="seg.atrisk">At Risk</span></span>
+        <span><i style="background:var(--lost)"></i><span data-i18n="seg.lost">Lost</span></span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="about">
+  <div class="wrap about-grid">
+    <div>
+      <div class="eyebrow" data-i18n="about.eyebrow">About</div>
+      <h2 data-i18n="about.title">Analytical thinking, grounded in real business questions.</h2>
+      <div class="about-tags">
+        <span class="tag">SQL</span><span class="tag">Python</span><span class="tag">Power BI</span><span class="tag">Excel · Power Query</span><span class="tag">HR Analytics</span><span class="tag">RFM Segmentation</span>
+      </div>
+    </div>
+    <div>
+      <p data-i18n="about.p1">I'm a data analyst working across SQL, Python and Power BI/Excel to turn raw transactional and operational data into clear, actionable business intelligence — from customer behavior (RFM segmentation, retention) to HR workforce risk (attrition drivers, profiling).</p>
+      <p style="margin-top:16px" data-i18n="about.p2">Disciplined and detail-oriented, with strong data accuracy, record-keeping and reconciliation skills built through hands-on work cleaning and validating large datasets — 540,000+ transaction records processed and reconciled, directly transferable to inventory documentation, cycle counting and stock reconciliation as well as analytics reporting. My psychology background adds an edge in reading behavioral and operational patterns and communicating them clearly to stakeholders.</p>
+      <p style="margin-top:16px" data-i18n="about.p3">Fluent in Arabic and English, military-service exempt with no obligations, and immediately available for full-time roles.</p>
+      <div class="stat-grid">
+        <div class="stat-card"><strong>SQL</strong><span data-i18n="about.s1">Joins · CTEs · Window Fns</span></div>
+        <div class="stat-card"><strong>Python</strong><span data-i18n="about.s2">Pandas · NumPy · EDA</span></div>
+        <div class="stat-card"><strong>Power BI</strong><span data-i18n="about.s3">DAX · Data Modeling</span></div>
+        <div class="stat-card"><strong>Excel</strong><span data-i18n="about.s4">Power Query · Dashboards</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="services">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow" data-i18n="services.eyebrow">Services</div>
+      <h2 data-i18n="services.title">What I bring to your team or client project.</h2>
+    </div>
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <div class="service-icon">01</div>
+        <h4 data-i18n="serv.s1Title">Data Cleaning &amp; SQL Querying</h4>
+        <p data-i18n="serv.s1Desc">Transforming raw, messy datasets into structured, clean database schemas using CTEs, window functions, and complex aggregations.</p>
+        <div class="deliver" data-i18n="serv.s1Del">Deliverable: query bank + cleaned dataset</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">02</div>
+        <h4 data-i18n="serv.s2Title">Python EDA &amp; Feature Engineering</h4>
+        <p data-i18n="serv.s2Desc">Exploratory analysis, segmentation logic (RFM), and engineered features (quartiles, bands, flags) using pandas and NumPy.</p>
+        <div class="deliver" data-i18n="serv.s2Del">Deliverable: reproducible Python notebook</div>
+      </div>
+      <div class="service-card">
+        <div class="service-icon">03</div>
+        <h4 data-i18n="serv.s3Title">BI Dashboards &amp; Reporting</h4>
+        <p data-i18n="serv.s3Desc">Interactive Power BI / Excel dashboards with DAX measures, built to be read and acted on by a stakeholder in under a minute.</p>
+        <div class="deliver" data-i18n="serv.s3Del">Deliverable: live dashboard + walkthrough</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="skills">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow" data-i18n="skills.eyebrow">Skills</div>
+      <h2 data-i18n="skills.title">The toolkit behind every dashboard.</h2>
+    </div>
+    <div class="skills-grid reveal">
+      <div class="skill-card">
+        <h4>SQL</h4>
+        <ul>
+          <li data-i18n="sk.sql1">Joins, CTEs, subqueries</li>
+          <li data-i18n="sk.sql2">Window functions</li>
+          <li data-i18n="sk.sql3">Data validation &amp; QA</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h4>Python</h4>
+        <ul>
+          <li data-i18n="sk.py1">Pandas / NumPy</li>
+          <li data-i18n="sk.py2">EDA &amp; segmentation logic</li>
+          <li data-i18n="sk.py3">Data cleaning pipelines</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h4>Power BI / Excel</h4>
+        <ul>
+          <li data-i18n="sk.bi1">DAX measures</li>
+          <li data-i18n="sk.bi2">Data modeling</li>
+          <li data-i18n="sk.bi3">Power Query</li>
+        </ul>
+      </div>
+      <div class="skill-card">
+        <h4 data-i18n="sk.softTitle">Analytical &amp; Soft Skills</h4>
+        <ul>
+          <li data-i18n="sk.soft1">KPI tracking &amp; reporting</li>
+          <li data-i18n="sk.soft2">Stakeholder communication</li>
+          <li data-i18n="sk.soft3">Behavioral pattern reading</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="case-study">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow" data-i18n="work.eyebrow">Featured Work</div>
+      <h2 data-i18n="work.title">Two full case studies — click a card for the full breakdown.</h2>
+      <p data-i18n="work.sub">Problem, approach, findings, tools and recommendation — end to end, for each project.</p>
+    </div>
+
+    <div class="project-cards reveal">
+      <button class="project-card rfm" data-modal-open="modal-rfm">
+        <div>
+          <div class="pc-tag" data-i18n="pc.rfmTag">Customer Analytics · SQL · Python · Power BI</div>
+          <h3 data-i18n="pc.rfmTitle">RFM Customer Segmentation</h3>
+          <p data-i18n="pc.rfmDesc">4,372 customers, £8.9M in revenue — segmented by Recency, Frequency and Monetary value to find who to retain and who to win back.</p>
+        </div>
+        <div>
+          <div class="pc-stat">£8.9M<span data-i18n="pc.rfmStatLabel">Revenue Analyzed</span></div>
+          <div class="pc-cta"><span data-i18n="pc.viewFull">View Full Case Study</span> <span class="arr">→</span></div>
+        </div>
+      </button>
+
+      <button class="project-card hr" data-modal-open="modal-hr">
+        <div>
+          <div class="pc-tag" data-i18n="pc.hrTag">HR Analytics · SQL · Python · Power BI</div>
+          <h3 data-i18n="pc.hrTitle">Employee Attrition Dashboard</h3>
+          <p data-i18n="pc.hrDesc">5,000 employees, 15% attrition rate — broken down by department, overtime, income, commute distance and job role.</p>
+        </div>
+        <div>
+          <div class="pc-stat">15.0%<span data-i18n="pc.hrStatLabel">Attrition Rate</span></div>
+          <div class="pc-cta"><span data-i18n="pc.viewFull">View Full Case Study</span> <span class="arr">→</span></div>
+        </div>
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= MODAL: RFM ============================= -->
+<div class="modal-overlay" id="modal-rfm">
+  <div class="modal">
+    <button class="modal-close" data-modal-close aria-label="Close">✕</button>
+    <div class="case">
+      <div class="case-top">
+        <div>
+          <div class="eyebrow" style="color:#8CE3C4" data-i18n="rfm.eyebrow">Case Study 01 · Customer Analytics</div>
+          <h2 data-i18n="rfm.title">RFM Customer Segmentation — from 4,372 anonymous customers to 6 clear action groups.</h2>
+        </div>
+        <div class="case-links">
+          <a href="#contact" class="primary" data-i18n="rfm.linkDiscuss">Discuss this project</a>
+        </div>
+      </div>
+
+      <p style="max-width:680px" data-i18n="rfm.intro">
+        A year of e-commerce transactions across 38 countries, £8.9M in revenue, and no way to tell which customers
+        were worth protecting. I built an RFM (Recency, Frequency, Monetary) model in SQL and Python, scored every
+        customer, and packaged the result into a Power BI dashboard segmenting the base into six actionable groups.
+      </p>
+
+      <div class="kpi-row" style="margin-top:26px">
+        <div class="kpi"><strong>4,372</strong><span data-i18n="rfm.kpi1">Total Customers</span></div>
+        <div class="kpi"><strong>22,190</strong><span data-i18n="rfm.kpi2">Total Orders</span></div>
+        <div class="kpi"><strong>£8.9M</strong><span data-i18n="rfm.kpi3">Total Revenue</span></div>
+        <div class="kpi"><strong>£401.5</strong><span data-i18n="rfm.kpi4">Avg Order Value</span></div>
+      </div>
+
+      <div class="case-block">
+        <div class="num" data-i18n="rfm.n1">01 / Problem</div>
+        <div>
+          <h3 data-i18n="rfm.h1">Every customer looked the same on a revenue report.</h3>
+          <p data-i18n="rfm.p1">The business could see total revenue but had no way to tell a loyal repeat buyer from a one-time purchaser about to churn — so every marketing spend treated the whole base the same way.</p>
+        </div>
+      </div>
+
+      <div class="case-block">
+        <div class="num" data-i18n="rfm.n2">02 / Approach</div>
+        <div>
+          <h3 data-i18n="rfm.h2">Score every customer on Recency, Frequency and Monetary value.</h3>
+          <p data-i18n="rfm.p2">Cleaned and deduplicated 22,190 orders in SQL, computed R/F/M scores per customer in Python, then mapped every combination to six segments and built a Power BI dashboard with revenue, distribution and density views.</p>
+          <div class="flow" style="margin-top:16px">
+            <span data-i18n="rfm.flow1">Raw order history</span><span class="arrow">→</span>
+            <span data-i18n="rfm.flow2">SQL cleaning &amp; deduplication</span><span class="arrow">→</span>
+            <span data-i18n="rfm.flow3">Python RFM scoring</span><span class="arrow">→</span>
+            <span data-i18n="rfm.flow4">Power BI segmentation dashboard</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-block">
+        <div class="num" data-i18n="rfm.n3">03 / Findings</div>
+        <div>
+          <h3 data-i18n="rfm.h3">18% of customers drive over a third of all revenue.</h3>
+          <ul>
+            <li data-i18n="rfm.f1">Champions (18% of customers, 787 people) generate £3.16M — the single largest revenue segment on their own.</li>
+            <li data-i18n="rfm.f2">Champions + Loyal Customers together are 42% of the base but contribute 61.2% of total revenue.</li>
+            <li data-i18n="rfm.f3">At Risk and Lost customers combined are 21% of the base (920 customers) representing £1.2M in revenue exposed to churn.</li>
+            <li data-i18n="rfm.f4">The average RFM score sits at 9.7 out of 15 — the base is skewed toward mid-value, meaning targeted upgrades have real headroom.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="case-block">
+        <div class="num" data-i18n="rfm.n4">04 / Recommendation</div>
+        <div>
+          <h3 data-i18n="rfm.h4">Protect the top, convert the middle, win back the edge.</h3>
+          <p data-i18n="rfm.p4">Prioritize retention offers for Champions and Loyal Customers (61.2% of revenue), run conversion campaigns for Potential Loyalists, and launch a targeted re-engagement sequence for At Risk and Lost segments before that £1.2M churns out permanently.</p>
+        </div>
+      </div>
+
+      <div class="dash-shot">
+        <img src="assets/rfm-segmentation-dashboard.png" alt="RFM Customer Segmentation Dashboard — revenue by segment, customer distribution, recency vs frequency, RFM score distribution" onerror="this.outerHTML='&lt;div class=&quot;dash-placeholder&quot;&gt;RFM Dashboard preview — add assets/rfm-segmentation-dashboard.png to your repo&lt;/div&gt;'">
+      </div>
+
+      <div class="seg-pills" style="margin-top:20px">
+        <div class="seg-pill"><i style="background:var(--blue)"></i>SQL</div>
+        <div class="seg-pill"><i style="background:var(--blue)"></i>Python</div>
+        <div class="seg-pill"><i style="background:var(--blue)"></i>Power BI</div>
+        <div class="seg-pill"><i style="background:var(--blue)"></i>RFM Modeling</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============================= MODAL: HR ============================= -->
+<div class="modal-overlay" id="modal-hr">
+  <div class="modal">
+    <button class="modal-close" data-modal-close aria-label="Close">✕</button>
+    <div class="case">
+      <div class="case-top">
+        <div>
+          <div class="eyebrow" style="color:#F0B27A" data-i18n="hr.eyebrow">Case Study 02 · HR Analytics</div>
+          <h2 data-i18n="hr.title">Employee Attrition Dashboard — turning a 15% churn number into six factors HR can act on.</h2>
+        </div>
+        <div class="case-links">
+          <a href="https://github.com/Ahmed1870/HR-Attrition-Data-Analysis" target="_blank" rel="noopener" class="primary" data-i18n="hr.linkGithub"><span>↗</span> View on GitHub</a>
+          <a href="#contact" data-i18n="hr.linkDiscuss">Discuss this project</a>
+        </div>
+      </div>
+
+      <p style="max-width:680px" data-i18n="hr.intro">
+        A 5,000-employee HR dataset with a flat 15% attrition rate and no clear driver behind it. I cleaned and
+        modeled the data in SQL and Python, then built a Power BI dashboard that breaks attrition down by
+        department, overtime, income, commute distance and job role.
+      </p>
+
+      <div class="kpi-row" style="margin-top:26px">
+        <div class="kpi"><strong>5,000</strong><span data-i18n="hr.kpi1">Employees Analyzed</span></div>
+        <div class="kpi"><strong>15.0%</strong><span data-i18n="hr.kpi2">Overall Attrition Rate</span></div>
+        <div class="kpi"><strong>29.3%</strong><span data-i18n="hr.kpi3">Attrition — Overtime Staff</span></div>
+        <div class="kpi"><strong>3.4x</strong><span data-i18n="hr.kpi4">Overtime Risk Multiplier</span></div>
+      </div>
+
+      <div class="case-block">
+        <div class="num" data-i18n="hr.n1">01 / Problem</div>
+        <div>
+          <h3 data-i18n="hr.h1">750 people left. Nobody could say why.</h3>
+          <p data-i18n="hr.p1">Leadership had a single churn number but no breakdown — no way to tell if attrition was a pay problem, a workload problem, or concentrated in one department. Every retention initiative so far was a guess.</p>
+        </div>
+      </div>
+
+      <div class="case-block">
+        <div class="num" data-i18n="hr.n2">02 / Approach</div>
+        <div>
+          <h3 data-i18n="hr.h2">SQL for ground truth, Python for the patterns, Power BI for the story.</h3>
+          <p data-i18n="hr.p2">Cleaned and validated the raw HR export in SQL, engineered features in Python (income quartiles, commute-distance bands, overtime flag), then built five linked visuals in Power BI — all filtering against one KPI header.</p>
+          <div class="flow" style="margin-top:16px">
+            <span data-i18n="hr.flow1">Raw HR export</span><span class="arrow">→</span>
+            <span data-i18n="hr.flow2">SQL cleaning &amp; validation</span><span class="arrow">→</span>
+            <span data-i18n="hr.flow3">Python feature engineering</span><span class="arrow">→</span>
+            <span data-i18n="hr.flow4">Power BI dashboard</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="case-block">
+        <div class="num" data-i18n="hr.n3">03 / Findings</div>
+        <div>
+          <h3 data-i18n="hr.h3">Three risk factors stood out — "department" wasn't one of them.</h3>
+          <ul>
+            <li data-i18n="hr.f1">Overtime is the single biggest driver: 29.3% attrition among overtime staff vs. 8.7% for those who don't — a 3.4x gap.</li>
+            <li data-i18n="hr.f2">Attrition tracks commute distance non-linearly: it climbs from 12.5% (0–10km) to a peak of 27.0% (31–40km), then eases to 22.1%.</li>
+            <li data-i18n="hr.f3">Pay matters most at the bottom: the lowest income quartile churns at 24.2% vs. 8.2% in the top quartile — a 3x gap a flat raise wouldn't close efficiently.</li>
+            <li data-i18n="hr.f4">Role risk is inverted from expectation: Executives (21.8%) and Analysts (17.1%) show higher attrition than Managers (4.7%) — the usual "promote them" retention lever doesn't apply here.</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="case-block">
+        <div class="num" data-i18n="hr.n4">04 / Recommendation</div>
+        <div>
+          <h3 data-i18n="hr.h4">Three targeted interventions instead of one blanket policy.</h3>
+          <p data-i18n="hr.p4">Cap sustained overtime in the highest-risk departments, revisit compensation specifically for the bottom income quartile, and build a dedicated retention track for Executive/Analyst roles rather than assuming the standard management-ladder incentive applies to everyone.</p>
+        </div>
+      </div>
+
+      <div class="dash-shot">
+        <img src="assets/hr-attrition-dashboard.png" alt="Employee Attrition Dashboard — breakdowns by department, overtime, income quartile, commute distance and job role" onerror="this.outerHTML='&lt;div class=&quot;dash-placeholder&quot;&gt;HR Attrition Dashboard preview — add assets/hr-attrition-dashboard.png to your repo&lt;/div&gt;'">
+      </div>
+
+      <div class="seg-pills" style="margin-top:20px">
+        <div class="seg-pill"><i style="background:var(--blue)"></i>SQL</div>
+        <div class="seg-pill"><i style="background:var(--blue)"></i>Python</div>
+        <div class="seg-pill"><i style="background:var(--blue)"></i>Power BI</div>
+        <div class="seg-pill"><i style="background:var(--blue)"></i>DAX</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="process">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow" data-i18n="proc.eyebrow">Process</div>
+      <h2 data-i18n="proc.title">How every project moves from raw file to decision.</h2>
+    </div>
+    <div class="timeline reveal">
+      <div class="t-step">
+        <div class="t-dot"></div>
+        <div class="t-label" data-i18n="proc.l1">01 · Discovery</div>
+        <div class="t-content"><h4 data-i18n="proc.h1">Understand the business question</h4><p data-i18n="proc.p1">Before touching data, define what decision the analysis needs to support.</p></div>
+      </div>
+      <div class="t-step">
+        <div class="t-dot"></div>
+        <div class="t-label" data-i18n="proc.l2">02 · Cleaning</div>
+        <div class="t-content"><h4 data-i18n="proc.h2">SQL validation &amp; deduplication</h4><p data-i18n="proc.p2">Structure raw exports into a clean, query-ready dataset with documented assumptions.</p></div>
+      </div>
+      <div class="t-step">
+        <div class="t-dot"></div>
+        <div class="t-label" data-i18n="proc.l3">03 · Analysis</div>
+        <div class="t-content"><h4 data-i18n="proc.h3">Python modeling &amp; segmentation</h4><p data-i18n="proc.p3">Engineer features, run the statistical or scoring model, validate the results.</p></div>
+      </div>
+      <div class="t-step">
+        <div class="t-dot"></div>
+        <div class="t-label" data-i18n="proc.l4">04 · Dashboard</div>
+        <div class="t-content"><h4 data-i18n="proc.h4">Power BI / Excel build</h4><p data-i18n="proc.p4">Design a dashboard readable in under a minute, with the KPI header first.</p></div>
+      </div>
+      <div class="t-step">
+        <div class="t-dot"></div>
+        <div class="t-label" data-i18n="proc.l5">05 · Delivery</div>
+        <div class="t-content"><h4 data-i18n="proc.h5">Handoff &amp; recommendation</h4><p data-i18n="proc.p5">Walk through findings with stakeholders and translate numbers into next steps.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="contact">
+  <div class="wrap">
+    <div class="sec-head reveal">
+      <div class="eyebrow" data-i18n="contact.eyebrow">Contact</div>
+      <h2 data-i18n="contact.title">Let's talk about your data.</h2>
+      <p data-i18n="contact.sub">Available immediately for full-time roles, freelance projects, or a quick call.</p>
+    </div>
+    <div class="contact-wrap reveal">
+      <div class="contact-list">
+        <a href="mailto:ahmedgomeelsayed@gmail.com">
+          <div class="ic">@</div>
+          <div><span class="cl-label" data-i18n="contact.email">Email</span>ahmedgomeelsayed@gmail.com</div>
+        </a>
+        <a href="https://wa.me/201019672878" target="_blank" rel="noopener">
+          <div class="ic">WA</div>
+          <div><span class="cl-label" data-i18n="contact.whatsapp">WhatsApp</span>+20 101 967 2878</div>
+        </a>
+        <a href="tel:+201019672878">
+          <div class="ic">☎</div>
+          <div><span class="cl-label" data-i18n="contact.phone">Phone</span>+20 101 967 2878</div>
+        </a>
+        <a href="https://www.linkedin.com/in/ahmed-gomaa-al-sayed-abdel-fattah-103b81405" target="_blank" rel="noopener">
+          <div class="ic">in</div>
+          <div><span class="cl-label">LinkedIn</span>ahmed-gomaa-al-sayed-abdel-fattah</div>
+        </a>
+        <a href="https://github.com/Ahmed1870" target="_blank" rel="noopener">
+          <div class="ic">GH</div>
+          <div><span class="cl-label">GitHub</span>github.com/Ahmed1870</div>
+        </a>
+      </div>
+      <form id="contactForm">
+        <input type="text" id="cf-name" data-i18n-ph="contact.fName" placeholder="Your name" required>
+        <input type="email" id="cf-email" data-i18n-ph="contact.fEmail" placeholder="Your email" required>
+        <textarea id="cf-msg" data-i18n-ph="contact.fMsg" placeholder="Tell me about the role or project..." required></textarea>
+        <button type="submit" class="btn-primary" style="justify-content:center" data-i18n="contact.fSend">Send Message →</button>
+        <div class="form-note" data-i18n="contact.fNote">Opens your email app with this message pre-filled.</div>
+      </form>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-grid">
+    <div class="logo">Ahmed<span>.</span>Gomaa</div>
+    <div class="foot-links">
+      <a href="#about" data-i18n="nav.about">About</a>
+      <a href="#case-study" data-i18n="nav.work">Work</a>
+      <a href="#contact" data-i18n="nav.contact">Contact</a>
+    </div>
+    <div style="font-size:12.5px;color:var(--text-dim);font-family:var(--mono)" data-i18n="foot.rights">© 2026 Ahmed Gomaa. All rights reserved.</div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var dict = {
+    en: {
+      "nav.about":"About","nav.services":"Services","nav.skills":"Skills","nav.work":"Featured Work","nav.process":"Process","nav.contact":"Contact","nav.hire":"Hire Me",
+      "hero.eyebrow":"Data Analyst · SQL · Python · Power BI &amp; Excel",
+      "hero.title":"Ahmed Gomaa — turning raw data into <span class=\"accent\">business decisions.</span>",
+      "hero.sub":"I clean messy datasets, build the SQL and Python behind the numbers, and package the result into dashboards a business can act on the same day.",
+      "hero.ctaHire":"Hire Me →","hero.ctaWork":"View Case Studies",
+      "hero.m1":"Customers &amp; Employees Analyzed","hero.m2":"Revenue Modeled (RFM)","hero.m3":"Full Case Studies Delivered",
+      "seg.champions":"Champions","seg.loyal":"Loyal","seg.potential":"Potential","seg.atrisk":"At Risk","seg.lost":"Lost",
+      "about.eyebrow":"About","about.title":"Analytical thinking, grounded in real business questions.",
+      "about.p1":"I'm a data analyst working across SQL, Python and Power BI/Excel to turn raw transactional and operational data into clear, actionable business intelligence — from customer behavior (RFM segmentation, retention) to HR workforce risk (attrition drivers, profiling).",
+      "about.p2":"Disciplined and detail-oriented, with strong data accuracy, record-keeping and reconciliation skills built through hands-on work cleaning and validating large datasets — 540,000+ transaction records processed and reconciled, directly transferable to inventory documentation, cycle counting and stock reconciliation as well as analytics reporting. My psychology background adds an edge in reading behavioral and operational patterns and communicating them clearly to stakeholders.",
+      "about.p3":"Fluent in Arabic and English, military-service exempt with no obligations, and immediately available for full-time roles.",
+      "about.s1":"Joins · CTEs · Window Fns","about.s2":"Pandas · NumPy · EDA","about.s3":"DAX · Data Modeling","about.s4":"Power Query · Dashboards",
+      "services.eyebrow":"Services","services.title":"What I bring to your team or client project.",
+      "serv.s1Title":"Data Cleaning &amp; SQL Querying","serv.s1Desc":"Transforming raw, messy datasets into structured, clean database schemas using CTEs, window functions, and complex aggregations.","serv.s1Del":"Deliverable: query bank + cleaned dataset",
+      "serv.s2Title":"Python EDA &amp; Feature Engineering","serv.s2Desc":"Exploratory analysis, segmentation logic (RFM), and engineered features (quartiles, bands, flags) using pandas and NumPy.","serv.s2Del":"Deliverable: reproducible Python notebook",
+      "serv.s3Title":"BI Dashboards &amp; Reporting","serv.s3Desc":"Interactive Power BI / Excel dashboards with DAX measures, built to be read and acted on by a stakeholder in under a minute.","serv.s3Del":"Deliverable: live dashboard + walkthrough",
+      "skills.eyebrow":"Skills","skills.title":"The toolkit behind every dashboard.",
+      "sk.sql1":"Joins, CTEs, subqueries","sk.sql2":"Window functions","sk.sql3":"Data validation &amp; QA",
+      "sk.py1":"Pandas / NumPy","sk.py2":"EDA &amp; segmentation logic","sk.py3":"Data cleaning pipelines",
+      "sk.bi1":"DAX measures","sk.bi2":"Data modeling","sk.bi3":"Power Query",
+      "sk.softTitle":"Analytical &amp; Soft Skills","sk.soft1":"KPI tracking &amp; reporting","sk.soft2":"Stakeholder communication","sk.soft3":"Behavioral pattern reading",
+      "work.eyebrow":"Featured Work","work.title":"Two full case studies — click a card for the full breakdown.","work.sub":"Problem, approach, findings, tools and recommendation — end to end, for each project.",
+      "pc.rfmTag":"Customer Analytics · SQL · Python · Power BI","pc.rfmTitle":"RFM Customer Segmentation","pc.rfmDesc":"4,372 customers, £8.9M in revenue — segmented by Recency, Frequency and Monetary value to find who to retain and who to win back.","pc.rfmStatLabel":"Revenue Analyzed",
+      "pc.hrTag":"HR Analytics · SQL · Python · Power BI","pc.hrTitle":"Employee Attrition Dashboard","pc.hrDesc":"5,000 employees, 15% attrition rate — broken down by department, overtime, income, commute distance and job role.","pc.hrStatLabel":"Attrition Rate",
+      "pc.viewFull":"View Full Case Study",
+      "rfm.eyebrow":"Case Study 01 · Customer Analytics","rfm.title":"RFM Customer Segmentation — from 4,372 anonymous customers to 6 clear action groups.","rfm.linkDiscuss":"Discuss this project",
+      "rfm.intro":"A year of e-commerce transactions across 38 countries, £8.9M in revenue, and no way to tell which customers were worth protecting. I built an RFM (Recency, Frequency, Monetary) model in SQL and Python, scored every customer, and packaged the result into a Power BI dashboard segmenting the base into six actionable groups.",
+      "rfm.kpi1":"Total Customers","rfm.kpi2":"Total Orders","rfm.kpi3":"Total Revenue","rfm.kpi4":"Avg Order Value",
+      "rfm.n1":"01 / Problem","rfm.h1":"Every customer looked the same on a revenue report.","rfm.p1":"The business could see total revenue but had no way to tell a loyal repeat buyer from a one-time purchaser about to churn — so every marketing spend treated the whole base the same way.",
+      "rfm.n2":"02 / Approach","rfm.h2":"Score every customer on Recency, Frequency and Monetary value.","rfm.p2":"Cleaned and deduplicated 22,190 orders in SQL, computed R/F/M scores per customer in Python, then mapped every combination to six segments and built a Power BI dashboard with revenue, distribution and density views.",
+      "rfm.flow1":"Raw order history","rfm.flow2":"SQL cleaning &amp; deduplication","rfm.flow3":"Python RFM scoring","rfm.flow4":"Power BI segmentation dashboard",
+      "rfm.n3":"03 / Findings","rfm.h3":"18% of customers drive over a third of all revenue.",
+      "rfm.f1":"Champions (18% of customers, 787 people) generate £3.16M — the single largest revenue segment on their own.",
+      "rfm.f2":"Champions + Loyal Customers together are 42% of the base but contribute 61.2% of total revenue.",
+      "rfm.f3":"At Risk and Lost customers combined are 21% of the base (920 customers) representing £1.2M in revenue exposed to churn.",
+      "rfm.f4":"The average RFM score sits at 9.7 out of 15 — the base is skewed toward mid-value, meaning targeted upgrades have real headroom.",
+      "rfm.n4":"04 / Recommendation","rfm.h4":"Protect the top, convert the middle, win back the edge.","rfm.p4":"Prioritize retention offers for Champions and Loyal Customers (61.2% of revenue), run conversion campaigns for Potential Loyalists, and launch a targeted re-engagement sequence for At Risk and Lost segments before that £1.2M churns out permanently.",
+      "hr.eyebrow":"Case Study 02 · HR Analytics","hr.title":"Employee Attrition Dashboard — turning a 15% churn number into six factors HR can act on.","hr.linkGithub":"View on GitHub","hr.linkDiscuss":"Discuss this project",
+      "hr.intro":"A 5,000-employee HR dataset with a flat 15% attrition rate and no clear driver behind it. I cleaned and modeled the data in SQL and Python, then built a Power BI dashboard that breaks attrition down by department, overtime, income, commute distance and job role.",
+      "hr.kpi1":"Employees Analyzed","hr.kpi2":"Overall Attrition Rate","hr.kpi3":"Attrition — Overtime Staff","hr.kpi4":"Overtime Risk Multiplier",
+      "hr.n1":"01 / Problem","hr.h1":"750 people left. Nobody could say why.","hr.p1":"Leadership had a single churn number but no breakdown — no way to tell if attrition was a pay problem, a workload problem, or concentrated in one department. Every retention initiative so far was a guess.",
+      "hr.n2":"02 / Approach","hr.h2":"SQL for ground truth, Python for the patterns, Power BI for the story.","hr.p2":"Cleaned and validated the raw HR export in SQL, engineered features in Python (income quartiles, commute-distance bands, overtime flag), then built five linked visuals in Power BI — all filtering against one KPI header.",
+      "hr.flow1":"Raw HR export","hr.flow2":"SQL cleaning &amp; validation","hr.flow3":"Python feature engineering","hr.flow4":"Power BI dashboard",
+      "hr.n3":"03 / Findings","hr.h3":"Three risk factors stood out — \"department\" wasn't one of them.",
+      "hr.f1":"Overtime is the single biggest driver: 29.3% attrition among overtime staff vs. 8.7% for those who don't — a 3.4x gap.",
+      "hr.f2":"Attrition tracks commute distance non-linearly: it climbs from 12.5% (0–10km) to a peak of 27.0% (31–40km), then eases to 22.1%.",
+      "hr.f3":"Pay matters most at the bottom: the lowest income quartile churns at 24.2% vs. 8.2% in the top quartile — a 3x gap a flat raise wouldn't close efficiently.",
+      "hr.f4":"Role risk is inverted from expectation: Executives (21.8%) and Analysts (17.1%) show higher attrition than Managers (4.7%) — the usual \"promote them\" retention lever doesn't apply here.",
+      "hr.n4":"04 / Recommendation","hr.h4":"Three targeted interventions instead of one blanket policy.","hr.p4":"Cap sustained overtime in the highest-risk departments, revisit compensation specifically for the bottom income quartile, and build a dedicated retention track for Executive/Analyst roles rather than assuming the standard management-ladder incentive applies to everyone.",
+      "proc.eyebrow":"Process","proc.title":"How every project moves from raw file to decision.",
+      "proc.l1":"01 · Discovery","proc.h1":"Understand the business question","proc.p1":"Before touching data, define what decision the analysis needs to support.",
+      "proc.l2":"02 · Cleaning","proc.h2":"SQL validation &amp; deduplication","proc.p2":"Structure raw exports into a clean, query-ready dataset with documented assumptions.",
+      "proc.l3":"03 · Analysis","proc.h3":"Python modeling &amp; segmentation","proc.p3":"Engineer features, run the statistical or scoring model, validate the results.",
+      "proc.l4":"04 · Dashboard","proc.h4":"Power BI / Excel build","proc.p4":"Design a dashboard readable in under a minute, with the KPI header first.",
+      "proc.l5":"05 · Delivery","proc.h5":"Handoff &amp; recommendation","proc.p5":"Walk through findings with stakeholders and translate numbers into next steps.",
+      "contact.eyebrow":"Contact","contact.title":"Let's talk about your data.","contact.sub":"Available immediately for full-time roles, freelance projects, or a quick call.",
+      "contact.email":"Email","contact.whatsapp":"WhatsApp","contact.phone":"Phone",
+      "contact.fName":"Your name","contact.fEmail":"Your email","contact.fMsg":"Tell me about the role or project...","contact.fSend":"Send Message →","contact.fNote":"Opens your email app with this message pre-filled.",
+      "foot.rights":"© 2026 Ahmed Gomaa. All rights reserved."
+    },
+    ar: {
+      "nav.about":"عني","nav.services":"الخدمات","nav.skills":"المهارات","nav.work":"أبرز الأعمال","nav.process":"طريقة العمل","nav.contact":"تواصل","nav.hire":"وظّفني",
+      "hero.eyebrow":"محلل بيانات · SQL · Python · Power BI و Excel",
+      "hero.title":"أحمد جمعة — تحويل البيانات الخام إلى <span class=\"accent\">قرارات عمل.</span>",
+      "hero.sub":"بنظّف البيانات المعقدة، وأبني SQL وPython اللي وراء الأرقام، وأحوّل النتيجة إلى لوحات بيانات يقدر صاحب العمل يتخذ قرار بناءً عليها في نفس اليوم.",
+      "hero.ctaHire":"وظّفني →","hero.ctaWork":"شاهد دراسات الحالة",
+      "hero.m1":"عميل وموظف تم تحليلهم","hero.m2":"إيرادات تم نمذجتها (RFM)","hero.m3":"دراسة حالة كاملة",
+      "seg.champions":"الأبطال","seg.loyal":"الأوفياء","seg.potential":"محتملين","seg.atrisk":"معرضين للخطر","seg.lost":"مفقودين",
+      "about.eyebrow":"عني","about.title":"تفكير تحليلي مبني على أسئلة عمل حقيقية.",
+      "about.p1":"أنا محلل بيانات أعمل بـ SQL وPython وPower BI/Excel لتحويل البيانات التشغيلية الخام إلى معلومات عمل واضحة وقابلة للتنفيذ — من سلوك العملاء (تقسيم RFM، الاحتفاظ بالعملاء) إلى مخاطر القوى العاملة في الموارد البشرية (أسباب ترك العمل، تحديد الفئات).",
+      "about.p2":"منضبط ودقيق في التفاصيل، بمهارات قوية في دقة البيانات وحفظ السجلات والتسوية، اكتسبتها من خلال تنظيف والتحقق من صحة بيانات ضخمة — أكثر من 540,000 سجل معاملة تمت معالجته وتسويته، وهي مهارات قابلة للتطبيق المباشر في توثيق المخزون والجرد الدوري وتسوية المخزون، وكذلك في تقارير التحليلات. خلفيتي في علم النفس تمنحني ميزة في قراءة الأنماط السلوكية والتشغيلية وتوصيلها بوضوح لأصحاب المصلحة.",
+      "about.p3":"أتحدث العربية والإنجليزية بطلاقة، مُعفى من الخدمة العسكرية بدون أي التزامات، ومتاح فورًا للعمل بدوام كامل.",
+      "about.s1":"دمج جداول · CTEs · دوال نافذة","about.s2":"Pandas · NumPy · تحليل استكشافي","about.s3":"DAX · نمذجة بيانات","about.s4":"Power Query · لوحات بيانات",
+      "services.eyebrow":"الخدمات","services.title":"اللي هقدر أقدمه لفريقك أو مشروعك.",
+      "serv.s1Title":"تنظيف البيانات واستعلامات SQL","serv.s1Desc":"تحويل البيانات الخام والمعقدة إلى هياكل قواعد بيانات نظيفة باستخدام CTEs ودوال النافذة والتجميعات المعقدة.","serv.s1Del":"المخرج: مكتبة استعلامات + بيانات منظفة",
+      "serv.s2Title":"تحليل استكشافي وهندسة خصائص بـ Python","serv.s2Desc":"تحليل استكشافي، منطق تقسيم (RFM)، وخصائص مُهندسة (شرائح، نطاقات، فلاجز) باستخدام pandas وNumPy.","serv.s2Del":"المخرج: نوتبوك Python قابل لإعادة التنفيذ",
+      "serv.s3Title":"لوحات بيانات وتقارير BI","serv.s3Desc":"لوحات Power BI / Excel تفاعلية بمقاييس DAX، مصممة تُقرأ ويُتخذ قرار بناءً عليها في أقل من دقيقة.","serv.s3Del":"المخرج: لوحة بيانات حية + شرح كامل",
+      "skills.eyebrow":"المهارات","skills.title":"الأدوات اللي وراء كل لوحة بيانات.",
+      "sk.sql1":"دمج الجداول، CTEs، استعلامات فرعية","sk.sql2":"دوال النافذة","sk.sql3":"التحقق من صحة البيانات",
+      "sk.py1":"Pandas / NumPy","sk.py2":"تحليل استكشافي ومنطق تقسيم","sk.py3":"خطوط تنظيف بيانات",
+      "sk.bi1":"مقاييس DAX","sk.bi2":"نمذجة بيانات","sk.bi3":"Power Query",
+      "sk.softTitle":"مهارات تحليلية وشخصية","sk.soft1":"تتبع وتقارير KPI","sk.soft2":"التواصل مع أصحاب المصلحة","sk.soft3":"قراءة الأنماط السلوكية",
+      "work.eyebrow":"أبرز الأعمال","work.title":"دراستا حالة كاملتان — اضغط على الكارت لرؤية التفاصيل الكاملة.","work.sub":"المشكلة، المنهجية، النتائج، الأدوات والتوصية — لكل مشروع بالكامل.",
+      "pc.rfmTag":"تحليلات عملاء · SQL · Python · Power BI","pc.rfmTitle":"تقسيم العملاء بنموذج RFM","pc.rfmDesc":"4,372 عميل، 8.9 مليون جنيه إسترليني إيرادات — مقسّمة حسب الحداثة والتكرار والقيمة النقدية لتحديد من نحتفظ به ومن نسترجعه.","pc.rfmStatLabel":"إيرادات تم تحليلها",
+      "pc.hrTag":"تحليلات موارد بشرية · SQL · Python · Power BI","pc.hrTitle":"لوحة تحليل ترك الموظفين للعمل","pc.hrDesc":"5,000 موظف، نسبة ترك عمل 15% — مقسّمة حسب القسم والعمل الإضافي والدخل ومسافة التنقل والمسمى الوظيفي.","pc.hrStatLabel":"نسبة ترك العمل",
+      "pc.viewFull":"شاهد دراسة الحالة كاملة",
+      "rfm.eyebrow":"دراسة حالة 01 · تحليلات العملاء","rfm.title":"تقسيم العملاء بنموذج RFM — من 4,372 عميل مجهول إلى 6 فئات عمل واضحة.","rfm.linkDiscuss":"ناقش المشروع",
+      "rfm.intro":"سنة كاملة من معاملات التجارة الإلكترونية في 38 دولة، 8.9 مليون جنيه إسترليني إيرادات، ومفيش طريقة نعرف بيها أي العملاء يستحق الحماية. بنيت نموذج RFM (الحداثة، التكرار، القيمة النقدية) بـ SQL وPython، وقيّمت كل عميل، وحوّلت النتيجة إلى لوحة Power BI تقسّم القاعدة إلى 6 فئات قابلة للتنفيذ.",
+      "rfm.kpi1":"إجمالي العملاء","rfm.kpi2":"إجمالي الطلبات","rfm.kpi3":"إجمالي الإيرادات","rfm.kpi4":"متوسط قيمة الطلب",
+      "rfm.n1":"01 / المشكلة","rfm.h1":"كل العملاء كانوا متشابهين في تقرير الإيرادات.","rfm.p1":"الشركة كانت شايفة إجمالي الإيرادات بس مافيش طريقة تفرّق بين عميل وفي مخلص متكرر وعميل اشترى مرة واحدة وهيسيب — فكل إنفاق تسويقي كان بيعامل القاعدة كلها بنفس الطريقة.",
+      "rfm.n2":"02 / المنهجية","rfm.h2":"تقييم كل عميل حسب الحداثة والتكرار والقيمة النقدية.","rfm.p2":"نظّفت وأزلت التكرار من 22,190 طلب بـ SQL، حسبت درجات R/F/M لكل عميل بـ Python، وبعدين ربطت كل توليفة بواحدة من 6 فئات وبنيت لوحة Power BI بعروض للإيرادات والتوزيع والكثافة.",
+      "rfm.flow1":"سجل الطلبات الخام","rfm.flow2":"تنظيف وإزالة تكرار SQL","rfm.flow3":"تقييم RFM بـ Python","rfm.flow4":"لوحة تقسيم Power BI",
+      "rfm.n3":"03 / النتائج","rfm.h3":"18% من العملاء يحققون أكتر من ثلث إجمالي الإيرادات.",
+      "rfm.f1":"فئة الأبطال (18% من العملاء، 787 عميل) تحقق 3.16 مليون جنيه — أكبر فئة إيرادات منفردة.",
+      "rfm.f2":"الأبطال + العملاء الأوفياء مع بعض 42% من القاعدة بس بيحققوا 61.2% من إجمالي الإيرادات.",
+      "rfm.f3":"المعرضين للخطر والمفقودين مع بعض 21% من القاعدة (920 عميل) وبيمثلوا 1.2 مليون جنيه إيرادات معرضة للفقدان.",
+      "rfm.f4":"متوسط درجة RFM هو 9.7 من 15 — القاعدة أقرب للقيمة المتوسطة، يعني في مجال حقيقي لترقية العملاء لفئات أعلى.",
+      "rfm.n4":"04 / التوصية","rfm.h4":"حافظ على القمة، حوّل الوسط، استرجع الأطراف.","rfm.p4":"إعطاء أولوية لعروض الاحتفاظ بفئتي الأبطال والأوفياء (61.2% من الإيرادات)، تشغيل حملات تحويل للفئة المحتملة، وإطلاق حملة استرجاع مستهدفة للمعرضين للخطر والمفقودين قبل ما الـ1.2 مليون جنيه ده يضيع نهائيًا.",
+      "hr.eyebrow":"دراسة حالة 02 · تحليلات الموارد البشرية","hr.title":"لوحة تحليل ترك الموظفين — تحويل نسبة 15% إلى 6 عوامل قابلة للتنفيذ.","hr.linkGithub":"شاهد على GitHub","hr.linkDiscuss":"ناقش المشروع",
+      "hr.intro":"بيانات 5,000 موظف بمعدل ترك عمل ثابت 15% بدون سبب واضح. نظّفت ونمذجت البيانات بـ SQL وPython، وبنيت لوحة Power BI تكشف نسبة ترك العمل حسب القسم والعمل الإضافي والدخل ومسافة التنقل والمسمى الوظيفي.",
+      "hr.kpi1":"موظف تم تحليلهم","hr.kpi2":"إجمالي نسبة ترك العمل","hr.kpi3":"نسبة الترك — موظفي العمل الإضافي","hr.kpi4":"معامل خطورة العمل الإضافي",
+      "hr.n1":"01 / المشكلة","hr.h1":"750 موظف تركوا العمل. محدش عارف ليه.","hr.p1":"الإدارة كانت عندها رقم واحد للترك بدون أي تفصيل — مفيش طريقة تعرف لو المشكلة في الراتب أو ضغط الشغل أو مركّزة في قسم معين. كل خطة احتفاظ بالموظفين كانت تخمين.",
+      "hr.n2":"02 / المنهجية","hr.h2":"SQL للحقيقة، Python للأنماط، Power BI للقصة.","hr.p2":"نظّفت وتحققت من بيانات الموارد البشرية بـ SQL، وعملت هندسة خصائص بـ Python (شرائح دخل، نطاقات مسافة، فلاج عمل إضافي)، وبنيت 5 رسومات مترابطة في Power BI كلها بتتفلتر مع نفس رأس المؤشرات.",
+      "hr.flow1":"بيانات موارد بشرية خام","hr.flow2":"تنظيف وتحقق SQL","hr.flow3":"هندسة خصائص Python","hr.flow4":"لوحة Power BI",
+      "hr.n3":"03 / النتائج","hr.h3":"3 عوامل خطورة رئيسية — القسم مش واحد منهم.",
+      "hr.f1":"العمل الإضافي هو أكبر سبب: نسبة الترك عند موظفي الأوفرتايم 29.3% مقابل 8.7% لغيرهم — فرق 3.4 ضعف.",
+      "hr.f2":"نسبة الترك بتتغير مع مسافة التنقل بشكل غير خطي: بتزيد من 12.5% (0-10 كم) لأعلى نقطة 27.0% (31-40 كم) وبعدين بتقل لـ22.1%.",
+      "hr.f3":"الراتب أهم عامل في أقل شريحة دخل: نسبة الترك فيها 24.2% مقابل 8.2% في أعلى شريحة — فرق 3 أضعاف مش هتحله زيادة موحدة.",
+      "hr.f4":"خطورة المسمى الوظيفي معكوسة عن المتوقع: التنفيذيين (21.8%) والمحللين (17.1%) أعلى من المديرين (4.7%) — يعني الترقية مش الحل هنا.",
+      "hr.n4":"04 / التوصية","hr.h4":"3 تدخلات مستهدفة بدل سياسة واحدة عامة.","hr.p4":"تحديد سقف للعمل الإضافي المستمر في الأقسام الأعلى خطورة، مراجعة الرواتب لأقل شريحة دخل تحديدًا، وبناء مسار احتفاظ مخصص لمناصب التنفيذي/المحلل بدل افتراض إن سلم الترقيات العادي هيشتغل مع الكل.",
+      "proc.eyebrow":"طريقة العمل","proc.title":"إزاي كل مشروع بيتحول من ملف خام لقرار.",
+      "proc.l1":"01 · الاستكشاف","proc.h1":"فهم سؤال العمل","proc.p1":"قبل ما ألمس البيانات، بحدد القرار اللي التحليل محتاج يدعمه.",
+      "proc.l2":"02 · التنظيف","proc.h2":"تحقق وإزالة تكرار بـ SQL","proc.p2":"تحويل البيانات الخام إلى بيانات منظمة وجاهزة للاستعلام مع توثيق الافتراضات.",
+      "proc.l3":"03 · التحليل","proc.h3":"نمذجة وتقسيم بـ Python","proc.p3":"هندسة الخصائص، تشغيل النموذج الإحصائي أو نموذج التقييم، والتحقق من النتائج.",
+      "proc.l4":"04 · اللوحة","proc.h4":"بناء Power BI / Excel","proc.p4":"تصميم لوحة بيانات تُقرأ في أقل من دقيقة، مع رأس مؤشرات الأداء أولاً.",
+      "proc.l5":"05 · التسليم","proc.h5":"التسليم والتوصية","proc.p5":"مراجعة النتائج مع أصحاب المصلحة وترجمة الأرقام إلى خطوات عملية.",
+      "contact.eyebrow":"تواصل","contact.title":"يلا نتكلم عن بياناتك.","contact.sub":"متاح فورًا للعمل بدوام كامل، أو مشاريع فريلانس، أو مكالمة سريعة.",
+      "contact.email":"البريد الإلكتروني","contact.whatsapp":"واتساب","contact.phone":"الهاتف",
+      "contact.fName":"اسمك","contact.fEmail":"بريدك الإلكتروني","contact.fMsg":"احكيلي عن الوظيفة أو المشروع...","contact.fSend":"إرسال الرسالة →","contact.fNote":"هيفتح تطبيق البريد بتاعك برسالة جاهزة.",
+      "foot.rights":"© 2026 أحمد جمعة. جميع الحقوق محفوظة."
+    }
+  };
+
+  var currentLang = 'en';
+
+  function applyLang(lang){
+    currentLang = lang;
+    document.documentElement.lang = lang;
+    document.documentElement.dir = (lang === 'ar') ? 'rtl' : 'ltr';
+    document.getElementById('langToggle').textContent = (lang === 'ar') ? 'EN' : 'AR';
+    var map = dict[lang];
+    document.querySelectorAll('[data-i18n]').forEach(function(el){
+      var key = el.getAttribute('data-i18n');
+      if(map[key] !== undefined){ el.innerHTML = map[key]; }
+    });
+    document.querySelectorAll('[data-i18n-ph]').forEach(function(el){
+      var key = el.getAttribute('data-i18n-ph');
+      if(map[key] !== undefined){ el.setAttribute('placeholder', map[key]); }
+    });
+  }
+
+  document.getElementById('langToggle').addEventListener('click', function(){
+    applyLang(currentLang === 'en' ? 'ar' : 'en');
+  });
+
+  // Theme toggle
+  var themeBtn = document.getElementById('themeToggle');
+  themeBtn.addEventListener('click', function(){
+    var isDark = document.documentElement.getAttribute('data-theme') === 'dark';
+    document.documentElement.setAttribute('data-theme', isDark ? 'light' : 'dark');
+    themeBtn.textContent = isDark ? '☾' : '☀';
+  });
+
+  // Burger menu
+  var burger = document.getElementById('burgerBtn');
+  var navLinks = document.getElementById('navLinks');
+  burger.addEventListener('click', function(){ navLinks.classList.toggle('active'); });
+  navLinks.querySelectorAll('a').forEach(function(a){
+    a.addEventListener('click', function(){ navLinks.classList.remove('active'); });
+  });
+
+  // Reveal on scroll
+  var revealEls = document.querySelectorAll('.reveal');
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(entry){
+      if(entry.isIntersecting){ entry.target.classList.add('in'); io.unobserve(entry.target); }
+    });
+  }, {threshold:0.12});
+  revealEls.forEach(function(el){ io.observe(el); });
+
+  // Modals
+  document.querySelectorAll('[data-modal-open]').forEach(function(btn){
+    btn.addEventListener('click', function(){
+      var id = btn.getAttribute('data-modal-open');
+      var modal = document.getElementById(id);
+      if(modal){ modal.classList.add('open'); document.body.classList.add('modal-open-lock'); }
+    });
+  });
+  function closeAllModals(){
+    document.querySelectorAll('.modal-overlay.open').forEach(function(m){ m.classList.remove('open'); });
+    document.body.classList.remove('modal-open-lock');
+  }
+  document.querySelectorAll('[data-modal-close]').forEach(function(btn){
+    btn.addEventListener('click', closeAllModals);
+  });
+  document.querySelectorAll('.modal-overlay').forEach(function(overlay){
+    overlay.addEventListener('click', function(e){ if(e.target === overlay){ closeAllModals(); } });
+  });
+  document.addEventListener('keydown', function(e){ if(e.key === 'Escape'){ closeAllModals(); } });
+
+  // Contact form -> mailto
+  document.getElementById('contactForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('cf-name').value;
+    var email = document.getElementById('cf-email').value;
+    var msg = document.getElementById('cf-msg').value;
+    var subject = encodeURIComponent('Portfolio contact from ' + name);
+    var body = encodeURIComponent(msg + '\n\n— ' + name + ' (' + email + ')');
+    window.location.href = 'mailto:ahmedgomeelsayed@gmail.com?subject=' + subject + '&body=' + body;
+  });
+})();
+</script>
+
+</body>
+</html>
