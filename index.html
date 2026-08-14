@@ -4,9 +4,9 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title id="meta-title">Ahmed Gomaa — Data Analyst | Turning Raw Data Into Business Decisions</title>
-<meta id="meta-desc" name="description" content="Ahmed Gomaa is a data analyst specializing in SQL, Python and Excel/Power BI — RFM segmentation, KPI dashboards and business reporting for retail & e-commerce clients.">
+<meta id="meta-desc" name="description" content="Ahmed Gomaa is a data analyst specializing in SQL, Python, Power BI and Excel — HR Analytics, RFM segmentation, KPI dashboards and business reporting.">
 <meta property="og:title" content="Ahmed Gomaa — Data Analyst">
-<meta property="og:description" content="Turning raw data into business decisions. SQL · Python · Excel · Power BI.">
+<meta property="og:description" content="Turning raw data into business decisions. SQL · Python · Power BI · Excel.">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -79,7 +79,8 @@
   .burger{display:none;}
   @media(max-width:900px){
     .nav-links{display:none;}
-    .burger{display:flex; width:38px; height:38px; align-items:center; justify-content:center; border:1px solid var(--line); border-radius:10px; cursor:pointer;}
+    .nav-links.active{display:flex; position:absolute; top:100%; left:0; right:0; background:var(--paper); flex-direction:column; padding:20px; border-bottom:1px solid var(--line); gap:16px;}
+    .burger{display:flex; width:38px; height:38px; align-items:center; justify-content:center; border:1px solid var(--line); border-radius:10px; cursor:pointer; background:var(--white);}
   }
 
   /* HERO */
@@ -98,11 +99,9 @@
   .hero-meta div{font-family:var(--mono); font-size:12px; color:var(--text-dim); text-transform:uppercase; letter-spacing:.08em;}
   .hero-meta strong{display:block; font-family:var(--disp); font-size:22px; color:var(--text); font-weight:600; letter-spacing:0; text-transform:none; margin-bottom:2px;}
 
-  /* RFM signature visual */
+  /* RFM visual */
   .rfm-viz{position:relative; aspect-ratio:1/1; max-width:460px; margin-inline-start:auto;}
   .rfm-viz svg{width:100%; height:100%;}
-  .rfm-node{opacity:0; transform-origin:center; animation:pop .6s cubic-bezier(.2,.8,.2,1) forwards;}
-  @keyframes pop{ from{opacity:0; transform:scale(0);} to{opacity:1; transform:scale(1);} }
   .rfm-legend{position:absolute; bottom:-6px; left:0; right:0; display:flex; flex-wrap:wrap; gap:8px 14px; justify-content:center; font-family:var(--mono); font-size:10.5px; color:var(--text-dim);}
   .rfm-legend span{display:inline-flex; align-items:center; gap:6px;}
   .rfm-legend i{width:8px; height:8px; border-radius:50%; display:inline-block;}
@@ -117,10 +116,10 @@
   @media(max-width:860px){ .about-grid{grid-template-columns:1fr; gap:40px;} }
   .about-tags{display:flex; flex-wrap:wrap; gap:10px; margin-top:28px;}
   .tag{border:1px solid var(--line); border-radius:100px; padding:8px 16px; font-size:13.5px; font-family:var(--mono); color:var(--text-dim); background:var(--white);}
-  .stat-card{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:26px; text-align:center;}
-  .stat-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:10px;}
-  .stat-card strong{font-family:var(--disp); font-size:28px; display:block; color:var(--blue);}
-  .stat-card span{font-size:12.5px; color:var(--text-dim); font-family:var(--mono); text-transform:uppercase; letter-spacing:.06em;}
+  .stat-card{background:var(--panel); border:1px solid var(--line); border-radius:var(--radius); padding:22px; text-align:center;}
+  .stat-grid{display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-top:20px;}
+  .stat-card strong{font-family:var(--disp); font-size:24px; display:block; color:var(--blue);}
+  .stat-card span{font-size:12px; color:var(--text-dim); font-family:var(--mono); text-transform:uppercase; letter-spacing:.06em;}
 
   /* Services */
   .services-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:20px;}
@@ -128,7 +127,7 @@
   @media(max-width:560px){ .services-grid{grid-template-columns:1fr;} }
   .service-card{background:var(--white); border:1px solid var(--line); border-radius:var(--radius); padding:30px 26px; transition:transform .25s, border-color .25s, box-shadow .25s;}
   .service-card:hover{transform:translateY(-4px); border-color:var(--blue); box-shadow:0 20px 40px -20px rgba(20,38,77,.18);}
-  .service-icon{width:44px; height:44px; border-radius:12px; background:var(--blue-soft); display:flex; align-items:center; justify-content:center; margin-bottom:20px; color:var(--blue);}
+  .service-icon{width:44px; height:44px; border-radius:12px; background:var(--blue-soft); display:flex; align-items:center; justify-content:center; margin-bottom:20px; color:var(--blue); font-weight:700;}
   .service-card h4{font-size:18px; font-weight:600; margin-bottom:10px;}
   .service-card p{font-size:14.5px; margin-bottom:14px;}
   .deliver{font-family:var(--mono); font-size:11.5px; color:var(--text-dim); text-transform:uppercase; letter-spacing:.05em; border-top:1px solid var(--line); padding-top:14px;}
@@ -148,12 +147,12 @@
   @media(max-width:700px){ .case{padding:40px 24px; border-radius:20px;} }
   .case h2, .case h3{color:#fff;}
   .case p{color:#B9C2DC;}
-  .case-top{display:flex; justify-content:space-between; align-items:flex-start; gap:24px; flex-wrap:wrap; margin-bottom:50px;}
+  .case-top{display:flex; justify-content:space-between; align-items:flex-start; gap:24px; flex-wrap:wrap; margin-bottom:40px;}
   .case-links{display:flex; gap:12px; flex-wrap:wrap;}
   .case-links a{border:1px solid rgba(255,255,255,.22); padding:12px 20px; border-radius:100px; font-size:13.5px; font-weight:600; display:inline-flex; align-items:center; gap:8px; transition:all .2s;}
   .case-links a.primary{background:#fff; color:var(--navy); border-color:#fff;}
   .case-links a:hover{border-color:#fff; transform:translateY(-2px);}
-  .case-block{border-top:1px solid rgba(255,255,255,.14); padding:36px 0; display:grid; grid-template-columns:220px 1fr; gap:36px;}
+  .case-block{border-top:1px solid rgba(255,255,255,.14); padding:32px 0; display:grid; grid-template-columns:220px 1fr; gap:36px;}
   @media(max-width:760px){ .case-block{grid-template-columns:1fr; gap:14px;} }
   .case-block .num{font-family:var(--mono); font-size:13px; color:#7C8CBF; text-transform:uppercase; letter-spacing:.1em;}
   .case-block h3{font-size:22px; font-weight:600; margin-bottom:12px;}
@@ -164,15 +163,11 @@
   .kpi{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.12); border-radius:14px; padding:18px;}
   .kpi strong{font-family:var(--disp); font-size:24px; display:block; color:#fff;}
   .kpi span{font-family:var(--mono); font-size:11px; color:#8A93BF; text-transform:uppercase;}
-  .seg-pills{display:flex; flex-wrap:wrap; gap:10px; margin-top:6px;}
-  .seg-pill{background:rgba(255,255,255,.08); border:1px solid rgba(255,255,255,.16); padding:8px 16px; border-radius:100px; font-size:13px; display:flex; align-items:center; gap:8px;}
-  .seg-pill i{width:8px; height:8px; border-radius:50%;}
   .flow{display:flex; align-items:center; flex-wrap:wrap; gap:10px; font-family:var(--mono); font-size:13px; color:#B9C2DC;}
   .flow span{background:rgba(255,255,255,.06); border:1px solid rgba(255,255,255,.14); padding:8px 14px; border-radius:100px;}
   .flow .arrow{color:#5C6899;}
-
   .dash-shot{margin-top:20px; border-radius:16px; overflow:hidden; border:1px solid rgba(255,255,255,.14); background:rgba(255,255,255,.04); padding:10px;}
-  .dash-shot img{border-radius:10px;}
+  .dash-shot img{border-radius:10px; width:100%; height:auto;}
 
   /* Process */
   .timeline{display:flex; flex-direction:column; border-inline-start:1px solid var(--line); padding-inline-start:0;}
@@ -185,30 +180,6 @@
   .t-content p{font-size:14.5px;}
   @media(max-width:640px){ .t-step{grid-template-columns:1fr; gap:6px;} }
 
-  /* Why hire */
-  .why-grid{display:grid; grid-template-columns:repeat(4,1fr); gap:18px;}
-  @media(max-width:900px){ .why-grid{grid-template-columns:1fr 1fr;} }
-  @media(max-width:560px){ .why-grid{grid-template-columns:1fr;} }
-  .why-card{padding:26px 4px; border-top:2px solid var(--text);}
-  .why-card h4{font-size:16.5px; font-weight:600; margin-bottom:8px;}
-  .why-card p{font-size:14px;}
-
-  /* Testimonials */
-  .test-grid{display:grid; grid-template-columns:repeat(3,1fr); gap:18px;}
-  @media(max-width:860px){ .test-grid{grid-template-columns:1fr;} }
-  .test-card{border:1px dashed var(--line); border-radius:var(--radius); padding:28px; background:var(--panel);}
-  .test-card p{font-style:italic; font-size:14.5px;}
-  .test-card .who{margin-top:16px; font-family:var(--mono); font-size:12px; color:var(--text-dim); text-transform:uppercase;}
-
-  /* FAQ */
-  .faq-item{border-top:1px solid var(--line); padding:24px 0;}
-  .faq-item:last-child{border-bottom:1px solid var(--line);}
-  .faq-q{display:flex; justify-content:space-between; align-items:center; cursor:pointer; font-weight:600; font-size:16.5px; gap:20px;}
-  .faq-q .plus{font-family:var(--mono); font-size:20px; color:var(--blue); transition:transform .3s; flex:none;}
-  .faq-item.open .plus{transform:rotate(45deg);}
-  .faq-a{max-height:0; overflow:hidden; transition:max-height .35s ease;}
-  .faq-a p{padding-top:14px; font-size:15px;}
-
   /* Contact */
   .contact-wrap{display:grid; grid-template-columns:1fr 1fr; gap:60px;}
   @media(max-width:860px){ .contact-wrap{grid-template-columns:1fr;} }
@@ -219,7 +190,6 @@
   input,textarea{background:var(--panel); border:1px solid var(--line); border-radius:12px; padding:14px 16px; font-family:var(--body); font-size:14.5px; color:var(--text); outline:none; transition:border-color .2s;}
   input:focus, textarea:focus{border-color:var(--blue);}
   textarea{min-height:120px; resize:vertical;}
-  .form-note{font-size:12.5px; color:var(--text-dim); font-family:var(--mono);}
 
   footer{border-top:1px solid var(--line); padding:50px 0; margin-top:20px;}
   .foot-grid{display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:20px;}
@@ -239,7 +209,7 @@
 <header>
   <nav>
     <div class="logo">Ahmed<span>.</span>Gomaa</div>
-    <div class="nav-links">
+    <div class="nav-links" id="navLinks">
       <a href="#about" data-i18n="nav.about">About</a>
       <a href="#services" data-i18n="nav.services">Services</a>
       <a href="#skills" data-i18n="nav.skills">Skills</a>
@@ -250,6 +220,7 @@
     <div class="nav-right">
       <button class="icon-btn" id="themeToggle" title="Toggle theme">☾</button>
       <button class="icon-btn" id="langToggle" title="Language">EN</button>
+      <div class="burger" id="burgerBtn">☰</div>
       <a href="#contact" class="cta" data-i18n="nav.hire">Hire Me</a>
     </div>
   </nav>
@@ -263,17 +234,24 @@
       <p class="hero-sub" data-i18n="hero.sub">I clean messy datasets, build the SQL and Python behind the numbers, and package the result into dashboards a business can act on the same day.</p>
       <div class="hero-ctas">
         <a href="#contact" class="btn-primary" data-i18n="hero.ctaHire">Hire Me →</a>
-        <a href="#case-study" class="btn-outline" data-i18n="hero.ctaWork">View Case Study</a>
+        <a href="#case-study" class="btn-outline" data-i18n="hero.ctaWork">View Case Studies</a>
       </div>
       <div class="hero-meta">
-        <div><strong>541,909</strong><span data-i18n="hero.m1">Transactions cleaned &amp; analyzed</span></div>
-        <div><strong>7</strong><span data-i18n="hero.m2">Customer segments modeled</span></div>
-        <div><strong>4,372</strong><span data-i18n="hero.m3">Customers profiled via RFM</span></div>
+        <div><strong>546,909+</strong><span data-i18n="hero.m1">Total Records Analyzed</span></div>
+        <div><strong>2</strong><span data-i18n="hero.m2">Domain Case Studies</span></div>
+        <div><strong>9,372+</strong><span data-i18n="hero.m3">Entities Profiled</span></div>
       </div>
     </div>
     <div class="rfm-viz">
       <svg viewBox="0 0 460 460">
-        <g id="rfmNodes"></g>
+        <circle cx="230" cy="230" r="180" fill="none" stroke="var(--line)" stroke-width="1" stroke-dasharray="4 4" />
+        <circle cx="230" cy="230" r="120" fill="none" stroke="var(--line)" stroke-width="1" stroke-dasharray="4 4" />
+        <circle cx="230" cy="230" r="60" fill="none" stroke="var(--line)" stroke-width="1" stroke-dasharray="4 4" />
+        <circle cx="230" cy="110" r="28" fill="var(--champions)" opacity="0.85" />
+        <circle cx="330" cy="180" r="22" fill="var(--loyal)" opacity="0.85" />
+        <circle cx="310" cy="300" r="24" fill="var(--potential)" opacity="0.85" />
+        <circle cx="160" cy="320" r="26" fill="var(--atrisk)" opacity="0.85" />
+        <circle cx="120" cy="190" r="20" fill="var(--sleep)" opacity="0.85" />
       </svg>
       <div class="rfm-legend">
         <span><i style="background:var(--champions)"></i><span data-i18n="seg.champions">Champions</span></span>
@@ -292,530 +270,31 @@
       <div class="eyebrow" data-i18n="about.eyebrow">About</div>
       <h2 data-i18n="about.title">Analytical thinking, grounded in real business questions.</h2>
       <div class="about-tags">
-        <span class="tag">SQL</span><span class="tag">Python</span><span class="tag">Excel · Power Query</span><span class="tag">Power BI</span><span class="tag">Data Storytelling</span>
+        <span class="tag">SQL</span><span class="tag">Python</span><span class="tag">Power BI</span><span class="tag">Excel · Power Query</span><span class="tag">HR Analytics</span><span class="tag">Data Storytelling</span>
       </div>
     </div>
     <div>
-      <p data-i18n="about.p1">I'm a data analyst working across SQL, Python and Excel/Power BI to turn transactional data into clear, actionable business intelligence. My focus is customer behavior analysis — segmentation, retention, and the reporting that helps a business decide who to invest in and who is about to churn.</p>
-      <p style="margin-top:16px" data-i18n="about.p2">My background is in psychology, which shapes how I approach data: I don't stop at the numbers, I look for the behavioral pattern underneath them and explain it in language stakeholders actually use. Every project I ship comes with clean SQL, reproducible Python analysis, and a dashboard built to be read in under a minute.</p>
+      <p data-i18n="about.p1">I'm a data analyst working across SQL, Python and Power BI/Excel to turn raw transactional and operational data into clear, actionable business intelligence. My focus spans customer behavior analysis (RFM segmentation, retention) and HR workforce analytics (attrition drivers, risk profiling).</p>
+      <p style="margin-top:16px" data-i18n="about.p2">My background in psychology shapes how I approach data: I don't stop at the numbers, I look for the behavioral patterns underneath them and explain them in language stakeholders actually use. Every project I ship comes with clean SQL, reproducible Python analysis, and interactive dashboards.</p>
       <div class="stat-grid">
         <div class="stat-card"><strong>SQL</strong><span data-i18n="about.s1">Joins · CTEs · Window Fns</span></div>
-        <div class="stat-card"><strong>Python</strong><span data-i18n="about.s2">Pandas · NumPy · Matplotlib</span></div>
-        <div class="stat-card"><strong>Excel</strong><span data-i18n="about.s3">Power Query · Power Pivot</span></div>
-        <div class="stat-card"><strong>BI</strong><span data-i18n="about.s4">Power BI · KPI Reporting</span></div>
+        <div class="stat-card"><strong>Python</strong><span data-i18n="about.s2">Pandas · NumPy · EDA</span></div>
+        <div class="stat-card"><strong>Power BI</strong><span data-i18n="about.s3">DAX · Data Modeling</span></div>
+        <div class="stat-card"><strong>Excel</strong><span data-i18n="about.s4">Power Query · Dashboards</span></div>
       </div>
     </div>
   </div>
 </section>
 
-<section id="services" style="background:var(--panel)">
+<section id="services">
   <div class="wrap">
-    <div class="sec-head">
+    <div class="sec-head reveal">
       <div class="eyebrow" data-i18n="services.eyebrow">Services</div>
-      <h2 data-i18n="services.title">What I can do for your business</h2>
-      <p data-i18n="services.sub">Every engagement starts with a business question, not a dataset. Here's where I typically plug in.</p>
+      <h2 data-i18n="services.title">What I bring to your team or client project.</h2>
     </div>
-    <div class="services-grid" id="servicesGrid"></div>
-  </div>
-</section>
-
-<section id="skills">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow" data-i18n="skills.eyebrow">Toolkit</div>
-      <h2 data-i18n="skills.title">Skills, by discipline</h2>
-    </div>
-    <div class="skills-grid" id="skillsGrid"></div>
-  </div>
-</section>
-
-<section id="case-study" style="background:var(--panel)">
-  <div class="wrap">
-    <div class="case reveal">
-      <div class="case-top">
-        <div>
-          <div class="eyebrow" style="color:#8CA0FF" data-i18n="case.eyebrow">Featured Case Study</div>
-          <h2 style="font-size:clamp(26px,3.4vw,38px); max-width:640px;" data-i18n="case.title">Customer Behavior &amp; RFM Analysis — Online Retail</h2>
-        </div>
-        <div class="case-links">
-          <a href="https://github.com/Ahmed1870/Customer-Behavior-RFM-Analysis" target="_blank" rel="noopener" class="primary" data-i18n="case.ctaRepo">View GitHub Repository ↗</a>
-        </div>
-      </div>
-
-      <div class="case-block">
-        <div class="t-label num" data-i18n="case.n01">01 · Business Problem</div>
-        <div>
-          <h3 data-i18n="case.problemTitle">Every customer was treated the same</h3>
-          <p data-i18n="case.problemBody">The company had thousands of customers but no way to tell them apart. Marketing budget was spread evenly instead of where it mattered, loyal customers got no special attention, and at-risk customers left without anyone noticing.</p>
-          <ul>
-            <li data-i18n="case.q1">Which customers generate the highest revenue?</li>
-            <li data-i18n="case.q2">Which customers are likely to stop purchasing?</li>
-            <li data-i18n="case.q3">How should marketing campaigns differ between segments?</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="case-block">
-        <div class="t-label num" data-i18n="case.n02">02 · Dataset</div>
-        <div>
-          <h3 data-i18n="case.datasetTitle">Online Retail Dataset (UCI / Kaggle)</h3>
-          <div class="kpi-row">
-            <div class="kpi"><strong>541,909</strong><span data-i18n="case.k1">Transactions</span></div>
-            <div class="kpi"><strong>4,372</strong><span data-i18n="case.k2">Customers</span></div>
-            <div class="kpi"><strong>38</strong><span data-i18n="case.k3">Countries</span></div>
-            <div class="kpi"><strong>Dec '10–'11</strong><span data-i18n="case.k4">Period Covered</span></div>
-          </div>
-        </div>
-      </div>
-
-      <div class="case-block">
-        <div class="t-label num" data-i18n="case.n03">03 · Workflow</div>
-        <div>
-          <h3 data-i18n="case.workflowTitle">Raw data to boardroom-ready dashboard</h3>
-          <div class="flow">
-            <span data-i18n="case.f1">Raw Data</span><span class="arrow">→</span>
-            <span data-i18n="case.f2">SQL Cleaning</span><span class="arrow">→</span>
-            <span data-i18n="case.f3">RFM Calculation</span><span class="arrow">→</span>
-            <span data-i18n="case.f4">Segmentation</span><span class="arrow">→</span>
-            <span data-i18n="case.f5">Business Insights</span><span class="arrow">→</span>
-            <span data-i18n="case.f6">Excel Dashboard</span>
-          </div>
-        </div>
-      </div>
-
-      <div class="case-block">
-        <div class="t-label num" data-i18n="case.n04">04 · SQL Analysis</div>
-        <div>
-          <h3 data-i18n="case.sqlTitle">Customer-level aggregation in SQL</h3>
-          <p data-i18n="case.sqlBody">Cleaned and validated over 540,000 line-level transactions, then built Recency, Frequency and Monetary metrics per customer using joins, CTEs, CASE WHEN logic, window functions and aggregations — producing one analytical table ready for segmentation.</p>
-        </div>
-      </div>
-
-      <div class="case-block">
-        <div class="t-label num" data-i18n="case.n05">05 · Segmentation</div>
-        <div>
-          <h3 data-i18n="case.segTitle">Seven behavior-based customer segments</h3>
-          <div class="seg-pills">
-            <span class="seg-pill"><i style="background:var(--champions)"></i><span data-i18n="seg.champions">Champions</span></span>
-            <span class="seg-pill"><i style="background:var(--loyal)"></i><span data-i18n="seg.loyal">Loyal Customers</span></span>
-            <span class="seg-pill"><i style="background:var(--potential)"></i><span data-i18n="seg.potential">Potential Loyalists</span></span>
-            <span class="seg-pill"><i style="background:#8CE0C4"></i><span data-i18n="seg.new">New Customers</span></span>
-            <span class="seg-pill"><i style="background:var(--sleep)"></i><span data-i18n="seg.sleep">About To Sleep</span></span>
-            <span class="seg-pill"><i style="background:var(--atrisk)"></i><span data-i18n="seg.atrisk">At Risk</span></span>
-            <span class="seg-pill"><i style="background:var(--lost)"></i><span data-i18n="seg.lost">Lost Customers</span></span>
-          </div>
-        </div>
-      </div>
-
-      <div class="case-block">
-        <div class="t-label num" data-i18n="case.n06">06 · Python EDA</div>
-        <div>
-          <h3 data-i18n="case.pyTitle">Exploratory analysis with Pandas &amp; Matplotlib</h3>
-          <p data-i18n="case.pyBody">Used Python (Pandas, NumPy, Matplotlib) to explore purchasing patterns across the cleaned dataset and validate what the SQL segmentation was showing, before handing the results to the dashboard layer.</p>
-        </div>
-      </div>
-
-      <div class="case-block">
-        <div class="t-label num" data-i18n="case.n07">07 · Dashboard</div>
-        <div>
-          <h3 data-i18n="case.dashTitle">Interactive Excel dashboard</h3>
-          <p data-i18n="case.dashBody">Built to track Total Revenue, Total Customers, Total Orders, Average Order Value, Champions % and Revenue At Risk — the KPIs a retail business needs to monitor segment health week to week.</p>
-          <div class="dash-shot">
-            <img src="https://github.com/Ahmed1870/Customer-Behavior-RFM-Analysis/raw/main/images/dashboard_preview.png" alt="RFM customer segmentation Excel dashboard preview" loading="lazy">
-          </div>
-        </div>
-      </div>
-
-      <div class="case-block">
-        <div class="t-label num" data-i18n="case.n08">08 · Recommendations</div>
-        <div>
-          <h3 data-i18n="case.recTitle">What the business should do next</h3>
-          <ul>
-            <li data-i18n="case.rec1">Protect revenue by prioritizing retention offers for the At Risk and About To Sleep segments before they churn.</li>
-            <li data-i18n="case.rec2">Reward Champions and Loyal Customers with recognition and early access instead of generic blanket discounts.</li>
-            <li data-i18n="case.rec3">Route new customers into a structured onboarding flow to convert them into Potential Loyalists faster.</li>
-          </ul>
-        </div>
-      </div>
-
-      <div class="case-block" style="border-bottom:1px solid rgba(255,255,255,.14)">
-        <div class="t-label num" data-i18n="case.n09">09 · Deliverables</div>
-        <div>
-          <h3 data-i18n="case.delivTitle">What's in the repository</h3>
-          <p data-i18n="case.delivBody">Full SQL scripts, Python notebooks, the Excel dashboard file and complete documentation are published and versioned on GitHub — the case study above is the summary; the repo is the technical record.</p>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="process">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow" data-i18n="process.eyebrow">How I Work</div>
-      <h2 data-i18n="process.title">A straightforward, transparent process</h2>
-    </div>
-    <div class="timeline" id="timeline"></div>
-  </div>
-</section>
-
-<section id="why" style="background:var(--panel)">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow" data-i18n="why.eyebrow">Why Work With Me</div>
-      <h2 data-i18n="why.title">What you get, beyond the numbers</h2>
-    </div>
-    <div class="why-grid" id="whyGrid"></div>
-  </div>
-</section>
-
-<section id="testimonials">
-  <div class="wrap">
-    <div class="sec-head">
-      <div class="eyebrow" data-i18n="test.eyebrow">Testimonials</div>
-      <h2 data-i18n="test.title">Client feedback</h2>
-      <p data-i18n="test.sub">This section is reserved for real client testimonials as freelance projects are completed — no placeholders are shown until then.</p>
-    </div>
-  </div>
-</section>
-
-<section id="faq" style="background:var(--panel)">
-  <div class="wrap" style="max-width:820px;">
-    <div class="sec-head">
-      <div class="eyebrow" data-i18n="faq.eyebrow">FAQ</div>
-      <h2 data-i18n="faq.title">Common questions</h2>
-    </div>
-    <div id="faqList"></div>
-  </div>
-</section>
-
-<section id="contact">
-  <div class="wrap contact-wrap">
-    <div>
-      <div class="eyebrow" data-i18n="contact.eyebrow">Get In Touch</div>
-      <h2 data-i18n="contact.title">Let's talk about your data.</h2>
-      <p style="margin-top:14px" data-i18n="contact.sub">Tell me about the dataset or business question you're working with — I'll reply with next steps.</p>
-      <div class="contact-list">
-        <a href="mailto:xcm3108@gmail.com"><span class="ic">@</span> xcm3108@gmail.com</a>
-        <a href="https://wa.me/201019672878" target="_blank" rel="noopener"><span class="ic">✆</span> <span data-i18n="contact.whatsapp">WhatsApp — +20 101 967 2878</span></a>
-        <a href="https://www.linkedin.com/in/ahmed-gomaa-al-sayed-abdel-fattah-103b81405/" target="_blank" rel="noopener"><span class="ic">in</span> LinkedIn</a>
-        <a href="https://github.com/Ahmed1870" target="_blank" rel="noopener"><span class="ic">gh</span> GitHub</a>
-      </div>
-    </div>
-    <form onsubmit="event.preventDefault(); document.getElementById('formMsg').style.display='block';">
-      <input type="text" placeholder="Name" data-i18n-ph="contact.fName" required>
-      <input type="email" placeholder="Email" data-i18n-ph="contact.fEmail" required>
-      <textarea placeholder="Tell me about your project" data-i18n-ph="contact.fMsg" required></textarea>
-      <button type="submit" class="btn-primary" style="border:none; cursor:pointer;" data-i18n="contact.fSend">Send Message</button>
-      <div class="form-note" id="formMsg" style="display:none;" data-i18n="contact.fSent">✓ Thanks — this is a demo form; please email or WhatsApp me directly for now.</div>
-    </form>
-  </div>
-</section>
-
-<footer>
-  <div class="wrap foot-grid">
-    <div class="logo" style="font-size:16px;">Ahmed<span>.</span>Gomaa</div>
-    <div class="foot-links">
-      <a href="mailto:xcm3108@gmail.com">Email</a>
-      <a href="https://www.linkedin.com/in/ahmed-gomaa-al-sayed-abdel-fattah-103b81405/" target="_blank" rel="noopener">LinkedIn</a>
-      <a href="https://github.com/Ahmed1870" target="_blank" rel="noopener">GitHub</a>
-    </div>
-    <div style="font-size:13px; color:var(--text-dim)" data-i18n="footer.rights">© 2026 Ahmed Gomaa. All rights reserved.</div>
-  </div>
-</footer>
-
-<script>
-/* ---------------- i18n dictionary ---------------- */
-const I18N = {
-en: {
-  nav:{about:"About",services:"Services",skills:"Skills",work:"Featured Work",process:"Process",contact:"Contact",hire:"Hire Me"},
-  hero:{eyebrow:"Data Analyst · SQL · Python · Excel & Power BI",
-    title:'Ahmed Gomaa — turning raw data into <span class="accent">business decisions.</span>',
-    sub:"I clean messy datasets, build the SQL and Python behind the numbers, and package the result into dashboards a business can act on the same day.",
-    ctaHire:"Hire Me →", ctaWork:"View Case Study",
-    m1:"Transactions cleaned & analyzed", m2:"Customer segments modeled", m3:"Customers profiled via RFM"},
-  seg:{champions:"Champions",loyal:"Loyal",potential:"Potential",atrisk:"At Risk",sleep:"About to Sleep",new:"New Customers",lost:"Lost Customers"},
-  about:{eyebrow:"About", title:"Analytical thinking, grounded in real business questions.",
-    p1:"I'm a data analyst working across SQL, Python and Excel/Power BI to turn transactional data into clear, actionable business intelligence. My focus is customer behavior analysis — segmentation, retention, and the reporting that helps a business decide who to invest in and who is about to churn.",
-    p2:"My background is in psychology, which shapes how I approach data: I don't stop at the numbers, I look for the behavioral pattern underneath them and explain it in language stakeholders actually use. Every project I ship comes with clean SQL, reproducible Python analysis, and a dashboard built to be read in under a minute.",
-    s1:"Joins · CTEs · Window Fns", s2:"Pandas · NumPy · Matplotlib", s3:"Power Query · Power Pivot", s4:"Power BI · KPI Reporting"},
-  services:{eyebrow:"Services", title:"What I can do for your business",
-    sub:"Every engagement starts with a business question, not a dataset. Here's where I typically plug in."},
-  skills:{eyebrow:"Toolkit", title:"Skills, by discipline"},
-  case:{eyebrow:"Featured Case Study", title:"Customer Behavior & RFM Analysis — Online Retail",
-    ctaRepo:"View GitHub Repository ↗",
-    n01:"01 · Business Problem", problemTitle:"Every customer was treated the same",
-    problemBody:"The company had thousands of customers but no way to tell them apart. Marketing budget was spread evenly instead of where it mattered, loyal customers got no special attention, and at-risk customers left without anyone noticing.",
-    q1:"Which customers generate the highest revenue?", q2:"Which customers are likely to stop purchasing?", q3:"How should marketing campaigns differ between segments?",
-    n02:"02 · Dataset", datasetTitle:"Online Retail Dataset (UCI / Kaggle)",
-    k1:"Transactions", k2:"Customers", k3:"Countries", k4:"Period Covered",
-    n03:"03 · Workflow", workflowTitle:"Raw data to boardroom-ready dashboard",
-    f1:"Raw Data", f2:"SQL Cleaning", f3:"RFM Calculation", f4:"Segmentation", f5:"Business Insights", f6:"Excel Dashboard",
-    n04:"04 · SQL Analysis", sqlTitle:"Customer-level aggregation in SQL",
-    sqlBody:"Cleaned and validated over 540,000 line-level transactions, then built Recency, Frequency and Monetary metrics per customer using joins, CTEs, CASE WHEN logic, window functions and aggregations — producing one analytical table ready for segmentation.",
-    n05:"05 · Segmentation", segTitle:"Seven behavior-based customer segments",
-    n06:"06 · Python EDA", pyTitle:"Exploratory analysis with Pandas & Matplotlib",
-    pyBody:"Used Python (Pandas, NumPy, Matplotlib) to explore purchasing patterns across the cleaned dataset and validate what the SQL segmentation was showing, before handing the results to the dashboard layer.",
-    n07:"07 · Dashboard", dashTitle:"Interactive Excel dashboard",
-    dashBody:"Built to track Total Revenue, Total Customers, Total Orders, Average Order Value, Champions % and Revenue At Risk — the KPIs a retail business needs to monitor segment health week to week.",
-    n08:"08 · Recommendations", recTitle:"What the business should do next",
-    rec1:"Protect revenue by prioritizing retention offers for the At Risk and About To Sleep segments before they churn.",
-    rec2:"Reward Champions and Loyal Customers with recognition and early access instead of generic blanket discounts.",
-    rec3:"Route new customers into a structured onboarding flow to convert them into Potential Loyalists faster.",
-    n09:"09 · Deliverables", delivTitle:"What's in the repository",
-    delivBody:"Full SQL scripts, Python notebooks, the Excel dashboard file and complete documentation are published and versioned on GitHub — the case study above is the summary; the repo is the technical record."},
-  process:{eyebrow:"How I Work", title:"A straightforward, transparent process"},
-  why:{eyebrow:"Why Work With Me", title:"What you get, beyond the numbers"},
-  test:{eyebrow:"Testimonials", title:"Client feedback", sub:"This section is reserved for real client testimonials as freelance projects are completed — no placeholders are shown until then."},
-  faq:{eyebrow:"FAQ", title:"Common questions"},
-  contact:{eyebrow:"Get In Touch", title:"Let's talk about your data.",
-    sub:"Tell me about the dataset or business question you're working with — I'll reply with next steps.",
-    whatsapp:"WhatsApp — +20 101 967 2878", fName:"Name", fEmail:"Email", fMsg:"Tell me about your project",
-    fSend:"Send Message", fSent:"✓ Thanks — this is a demo form; please email or WhatsApp me directly for now."},
-  footer:{rights:"© 2026 Ahmed Gomaa. All rights reserved."}
-},
-ar: {
-  nav:{about:"عني",services:"الخدمات",skills:"المهارات",work:"أبرز الأعمال",process:"آلية العمل",contact:"تواصل",hire:"وظّفني"},
-  hero:{eyebrow:"محلل بيانات · SQL · Python · Excel وPower BI",
-    title:'أحمد جمعة — أحوّل البيانات الخام إلى <span class="accent">قرارات عمل.</span>',
-    sub:"أنظّف البيانات المعقدة، وأبني SQL وPython خلف الأرقام، ثم أحوّل النتيجة إلى لوحات بيانات يقدر صاحب العمل يتخذ قرار بناءً عليها في نفس اليوم.",
-    ctaHire:"وظّفني ←", ctaWork:"شاهد دراسة الحالة",
-    m1:"معاملة تم تنظيفها وتحليلها", m2:"شرائح عملاء تم بناؤها", m3:"عميل تم تحليله عبر RFM"},
-  seg:{champions:"الأبطال",loyal:"العملاء الأوفياء",potential:"عملاء محتملون",atrisk:"معرّضون للفقد",sleep:"في طريقهم للتوقف",new:"عملاء جدد",lost:"عملاء مفقودون"},
-  about:{eyebrow:"نبذة عني", title:"تفكير تحليلي، مبني على أسئلة عمل حقيقية.",
-    p1:"أنا محلل بيانات أعمل على SQL وPython وExcel/Power BI لتحويل بيانات المعاملات إلى معلومات عمل واضحة وقابلة للتنفيذ. تركيزي الأساسي هو تحليل سلوك العملاء — التقسيم، الاحتفاظ بالعملاء، والتقارير التي تساعد صاحب العمل يقرر مين يستثمر فيه ومين على وشك يسيبه.",
-    p2:"خلفيتي الدراسية في علم النفس، وده بيأثر في طريقة تعاملي مع البيانات: مبقفش عند الأرقام بس، بدور على النمط السلوكي اللي وراها وأشرحه بلغة يفهمها أصحاب القرار. كل مشروع بسلمه بييجي مع SQL نظيف، وتحليل Python قابل لإعادة التنفيذ، ولوحة بيانات مصممة تُقرأ في أقل من دقيقة.",
-    s1:"Joins · CTEs · Window Fns", s2:"Pandas · NumPy · Matplotlib", s3:"Power Query · Power Pivot", s4:"Power BI · تقارير KPI"},
-  services:{eyebrow:"الخدمات", title:"إيه اللي أقدر أقدمه لعملك",
-    sub:"كل مشروع بيبدأ بسؤال عمل حقيقي، مش بمجموعة بيانات جاهزة. وده المكان اللي بدخل منه غالبًا."},
-  skills:{eyebrow:"الأدوات", title:"المهارات، مصنّفة حسب المجال"},
-  case:{eyebrow:"دراسة حالة مميزة", title:"تحليل سلوك العملاء وشرائح RFM — تجارة تجزئة إلكترونية",
-    ctaRepo:"عرض مستودع GitHub ↗",
-    n01:"٠١ · مشكلة العمل", problemTitle:"كل العملاء كانوا بيتعاملوا معاهم بنفس الطريقة",
-    problemBody:"الشركة كان عندها آلاف العملاء بدون أي طريقة تفرّق بينهم. ميزانية التسويق كانت بتتوزع بالتساوي بدل ما تتركز فين المفروض، والعملاء الأوفياء ملهمش أي اهتمام خاص، والعملاء المعرّضين للفقد كانوا بيسيبوا من غير حد يلاحظ.",
-    q1:"مين العملاء اللي بيحققوا أعلى إيرادات؟", q2:"مين العملاء اللي محتمل يتوقفوا عن الشراء؟", q3:"إزاي الحملات التسويقية المفروض تختلف بين الشرائح؟",
-    n02:"٠٢ · البيانات", datasetTitle:"بيانات Online Retail (UCI / Kaggle)",
-    k1:"معاملة", k2:"عميل", k3:"دولة", k4:"الفترة الزمنية",
-    n03:"٠٣ · آلية العمل", workflowTitle:"من البيانات الخام إلى لوحة بيانات جاهزة للعرض على الإدارة",
-    f1:"بيانات خام", f2:"تنظيف SQL", f3:"حساب RFM", f4:"تقسيم الشرائح", f5:"استنتاجات العمل", f6:"لوحة Excel",
-    n04:"٠٤ · تحليل SQL", sqlTitle:"تجميع البيانات على مستوى العميل باستخدام SQL",
-    sqlBody:"تم تنظيف والتحقق من أكثر من 540,000 معاملة، ثم بناء مقاييس Recency وFrequency وMonetary لكل عميل باستخدام Joins وCTEs ومنطق CASE WHEN ودوال النوافذ والتجميعات — للوصول لجدول تحليلي واحد جاهز لتقسيم الشرائح.",
-    n05:"٠٥ · تقسيم الشرائح", segTitle:"سبع شرائح عملاء مبنية على السلوك",
-    n06:"٠٦ · تحليل استكشافي بـPython", pyTitle:"تحليل استكشافي باستخدام Pandas وMatplotlib",
-    pyBody:"استخدمت Python (Pandas وNumPy وMatplotlib) لاستكشاف أنماط الشراء عبر البيانات المنظّفة والتحقق من نتائج تقسيم SQL، قبل تسليم النتائج لطبقة لوحة البيانات.",
-    n07:"٠٧ · لوحة البيانات", dashTitle:"لوحة بيانات تفاعلية على Excel",
-    dashBody:"مصممة لمتابعة إجمالي الإيرادات، وعدد العملاء، وعدد الطلبات، ومتوسط قيمة الطلب، ونسبة العملاء الأبطال، والإيرادات المعرّضة للخطر — وهي المؤشرات اللي أي شركة تجزئة محتاجة تتابعها أسبوعيًا.",
-    n08:"٠٨ · التوصيات", recTitle:"الخطوة التالية المقترحة للعمل",
-    rec1:"حماية الإيرادات عن طريق إعطاء أولوية لعروض الاحتفاظ بشرائح 'المعرّضين للفقد' و'في طريقهم للتوقف' قبل ما يسيبوا فعليًا.",
-    rec2:"مكافأة 'الأبطال' و'العملاء الأوفياء' بتقدير ووصول مبكر بدل الخصومات العامة لكل العملاء.",
-    rec3:"توجيه العملاء الجدد لمسار تهيئة منظم لتحويلهم لعملاء محتملين أسرع.",
-    n09:"٠٩ · المخرجات", delivTitle:"محتوى المستودع",
-    delivBody:"أكواد SQL كاملة، ودفاتر Python، وملف لوحة Excel، وتوثيق شامل، كلها منشورة وموثقة على GitHub — دراسة الحالة دي هي الملخص، والمستودع هو السجل التقني الكامل."},
-  process:{eyebrow:"طريقة عملي", title:"آلية عمل واضحة وشفافة"},
-  why:{eyebrow:"ليه تشتغل معايا", title:"إيه اللي هتاخده، غير الأرقام"},
-  test:{eyebrow:"آراء العملاء", title:"تقييمات العملاء", sub:"هذا القسم مخصص لآراء عملاء حقيقيين بمجرد اكتمال مشاريع فريلانس — ولن يتم عرض أي محتوى وهمي حتى ذلك الحين."},
-  faq:{eyebrow:"أسئلة شائعة", title:"أسئلة متكررة"},
-  contact:{eyebrow:"تواصل معايا", title:"يلا نتكلم عن بياناتك.",
-    sub:"احكيلي عن البيانات أو سؤال العمل اللي بتشتغل عليه — وهرد عليك بالخطوات الجاية.",
-    whatsapp:"واتساب — 201019672878+", fName:"الاسم", fEmail:"البريد الإلكتروني", fMsg:"احكيلي عن مشروعك",
-    fSend:"إرسال الرسالة", fSent:"✓ شكرًا — ده نموذج تجريبي، برجاء التواصل عبر الإيميل أو الواتساب مباشرة حاليًا."},
-  footer:{rights:"© 2026 أحمد جمعة. جميع الحقوق محفوظة."}
-}
-};
-
-/* ---------------- data-driven content (kept out of translation blob where structural) ---------------- */
-const SERVICES = [
- {icon:"🧹", key:"cleaning"},{icon:"🗄️", key:"sql"},{icon:"🐍", key:"python"},
- {icon:"📊", key:"powerbi"},{icon:"📈", key:"excel"},{icon:"📋", key:"reporting"},
- {icon:"🎯", key:"segmentation"},{icon:"📌", key:"kpi"},{icon:"🔍", key:"eda"},{icon:"🖼️", key:"dataviz"}
-];
-const SERVICE_TEXT = {
- en:{cleaning:["Data Cleaning","Raw, messy exports turned into validated, analysis-ready tables.","Clean dataset · validation log"],
-     sql:["SQL Analysis","Multi-table queries, CTEs and window functions to answer specific business questions.","Query scripts · analytical tables"],
-     python:["Python Analysis","Pandas/NumPy pipelines for exploratory analysis and pattern discovery.","Notebook · charts"],
-     powerbi:["Power BI Dashboards","Interactive dashboards with DAX measures and proper data modeling.",".pbix file · KPI set"],
-     excel:["Excel Dashboards","Power Query + Power Pivot dashboards for teams that live in Excel.",".xlsx dashboard"],
-     reporting:["Business Reporting","Executive summaries that translate analysis into decisions.","Report · summary deck"],
-     segmentation:["Customer Segmentation","RFM and behavior-based segmentation to prioritize marketing spend.","Segment table · profiles"],
-     kpi:["KPI Reporting","Defining and tracking the metrics that actually move the business.","KPI dashboard"],
-     eda:["Exploratory Data Analysis","Structured EDA to surface trends before any decision is made.","EDA notebook"],
-     dataviz:["Data Visualization","Charts and visuals built to be understood in seconds, not minutes.","Chart set"]},
- ar:{cleaning:["تنظيف البيانات","تحويل البيانات الخام والفوضوية إلى جداول موثوقة وجاهزة للتحليل.","بيانات نظيفة · سجل تحقق"],
-     sql:["تحليل SQL","استعلامات متعددة الجداول وCTEs ودوال نوافذ للإجابة على أسئلة عمل محددة.","أكواد استعلام · جداول تحليلية"],
-     python:["تحليل Python","خطوط معالجة Pandas/NumPy للتحليل الاستكشافي واكتشاف الأنماط.","دفتر عمل · رسوم بيانية"],
-     powerbi:["لوحات Power BI","لوحات بيانات تفاعلية بمقاييس DAX ونمذجة بيانات صحيحة.","ملف .pbix · مجموعة KPI"],
-     excel:["لوحات Excel","لوحات بيانات باستخدام Power Query وPower Pivot للفرق اللي شغالة على Excel.","لوحة .xlsx"],
-     reporting:["تقارير العمل","ملخصات تنفيذية تترجم التحليل إلى قرارات.","تقرير · عرض ملخص"],
-     segmentation:["تقسيم العملاء","تقسيم قائم على RFM والسلوك لترتيب أولويات الإنفاق التسويقي.","جدول شرائح · بروفايلات"],
-     kpi:["تقارير المؤشرات","تحديد ومتابعة المؤشرات اللي فعلاً بتحرّك العمل.","لوحة KPI"],
-     eda:["التحليل الاستكشافي للبيانات","تحليل استكشافي منظم لإظهار الاتجاهات قبل اتخاذ أي قرار.","دفتر EDA"],
-     dataviz:["تصور البيانات","رسوم بيانية مصممة لتُفهم في ثوانٍ، مش دقايق.","مجموعة رسوم بيانية"]}
-};
-
-const SKILLS = {
- en:{SQL:["Joins","CTEs","Window Functions","CASE WHEN","Aggregations"],
-     Python:["Pandas","NumPy","Matplotlib","Data Visualization"],
-     Excel:["Pivot Tables","Power Query","Power Pivot","Dashboard Design"],
-     Business:["Business Reporting","KPI Reporting","Power BI","Data Storytelling"]},
- ar:{"SQL":["Joins","CTEs","Window Functions","CASE WHEN","التجميعات"],
-     "Python":["Pandas","NumPy","Matplotlib","تصور البيانات"],
-     "Excel":["Pivot Tables","Power Query","Power Pivot","تصميم لوحات البيانات"],
-     "الأعمال":["تقارير الأعمال","تقارير KPI","Power BI","سرد البيانات"]}
-};
-
-const PROCESS = {
- en:[["Client Data","You share the raw dataset or connect your data source."],
-     ["Cleaning","Data is validated, deduplicated and structured for analysis."],
-     ["SQL","Business logic and metrics are built directly in SQL."],
-     ["Python","Exploratory analysis to confirm patterns and edge cases."],
-     ["Visualization","Charts built to answer the original business question."],
-     ["Dashboard","Everything packaged into an Excel or Power BI dashboard."],
-     ["Insights & Recommendations","A short report translating the analysis into next steps."]],
- ar:[["بيانات العميل","بتشاركني البيانات الخام أو تربطني بمصدر بياناتك."],
-     ["التنظيف","التحقق من البيانات وإزالة التكرار وتنظيمها للتحليل."],
-     ["SQL","بناء منطق العمل والمقاييس مباشرة في SQL."],
-     ["Python","تحليل استكشافي للتأكد من الأنماط والحالات الاستثنائية."],
-     ["التصور البصري","رسوم بيانية مصممة للإجابة على سؤال العمل الأساسي."],
-     ["لوحة البيانات","تجميع كل حاجة في لوحة Excel أو Power BI."],
-     ["الاستنتاجات والتوصيات","تقرير قصير يترجم التحليل لخطوات عملية."]]
-};
-
-const WHY = {
- en:[["Business-Oriented Thinking","I start from the decision you need to make, not the dataset."],
-     ["Attention to Detail","Every number is validated before it reaches a dashboard."],
-     ["Actionable Insights","Findings come with a recommendation attached, not just a chart."],
-     ["Clean, Documented Work","SQL and Python that's readable and reusable by your team."]],
- ar:[["تفكير موجّه للعمل","بابدأ من القرار اللي محتاج تاخده، مش من مجموعة البيانات نفسها."],
-     ["اهتمام بالتفاصيل","كل رقم بيتم التحقق منه قبل ما يوصل للوحة البيانات."],
-     ["استنتاجات قابلة للتنفيذ","كل نتيجة بتيجي مع توصية واضحة، مش رسم بياني بس."],
-     ["عمل نظيف وموثّق","SQL وPython قابلين للقراءة وإعادة الاستخدام من فريقك."]]
-};
-
-const FAQ = {
- en:[["What do you need from me to get started?","Just the raw dataset (CSV, Excel, or database access) and the business question you're trying to answer."],
-     ["Do you work with SQL databases or only Excel files?","Both — I regularly work with PostgreSQL/MySQL as well as Excel and CSV exports."],
-     ["Can you build the dashboard in Power BI instead of Excel?","Yes, I work in both Power BI and Excel depending on what your team already uses."],
-     ["How is the final work delivered?","You get the cleaned dataset, the SQL/Python scripts, the dashboard file, and a short written summary of insights and recommendations."],
-     ["Is my data kept confidential?","Yes — datasets are used only for the agreed project and are not shared or reused elsewhere."]],
- ar:[["إيه اللي محتاجه مني عشان نبدأ؟","بس البيانات الخام (CSV أو Excel أو صلاحية وصول لقاعدة بيانات) وسؤال العمل اللي عايز تجاوب عليه."],
-     ["بتشتغل على قواعد بيانات SQL ولا Excel بس؟","الاتنين — بشتغل بشكل منتظم على PostgreSQL/MySQL وكمان ملفات Excel وCSV."],
-     ["ممكن تعمل اللوحة على Power BI بدل Excel؟","أيوه، بشتغل على الاتنين حسب اللي فريقك بيستخدمه فعلاً."],
-     ["إزاي بيتم تسليم الشغل النهائي؟","بتستلم البيانات النظيفة، وأكواد SQL/Python، وملف اللوحة، وملخص مكتوب مختصر للاستنتاجات والتوصيات."],
-     ["بياناتي هتفضل سرية؟","أيوه — البيانات بتُستخدم بس في المشروع المتفق عليه ومبتتشاركش أو تُستخدم في أي حاجة تانية."]]
-};
-
-/* ---------------- render helpers ---------------- */
-function renderServices(lang){
-  const grid = document.getElementById('servicesGrid');
-  grid.innerHTML = SERVICES.map(s=>{
-    const t = SERVICE_TEXT[lang][s.key];
-    return `<div class="service-card"><div class="service-icon">${s.icon}</div><h4>${t[0]}</h4><p>${t[1]}</p><div class="deliver">${t[2]}</div></div>`;
-  }).join('');
-}
-function renderSkills(lang){
-  const grid = document.getElementById('skillsGrid');
-  const data = SKILLS[lang];
-  grid.innerHTML = Object.keys(data).map(cat=>`
-    <div class="skill-card"><h4>${cat}</h4><ul>${data[cat].map(i=>`<li>${i}</li>`).join('')}</ul></div>
-  `).join('');
-}
-function renderProcess(lang){
-  const tl = document.getElementById('timeline');
-  tl.innerHTML = PROCESS[lang].map((step,i)=>`
-    <div class="t-step"><div class="t-dot"></div>
-      <div class="t-label">${String(i+1).padStart(2,'0')}</div>
-      <div class="t-content"><h4>${step[0]}</h4><p>${step[1]}</p></div>
-    </div>`).join('');
-}
-function renderWhy(lang){
-  const grid = document.getElementById('whyGrid');
-  grid.innerHTML = WHY[lang].map(w=>`<div class="why-card"><h4>${w[0]}</h4><p>${w[1]}</p></div>`).join('');
-}
-function renderFaq(lang){
-  const list = document.getElementById('faqList');
-  list.innerHTML = FAQ[lang].map((f,i)=>`
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(${i})"><span>${f[0]}</span><span class="plus">+</span></div>
-      <div class="faq-a" id="faqA${i}"><p>${f[1]}</p></div>
-    </div>`).join('');
-}
-function toggleFaq(i){
-  const item = document.querySelectorAll('.faq-item')[i];
-  const a = document.getElementById('faqA'+i);
-  const open = item.classList.contains('open');
-  document.querySelectorAll('.faq-item').forEach((el,idx)=>{el.classList.remove('open'); document.getElementById('faqA'+idx).style.maxHeight=null;});
-  if(!open){ item.classList.add('open'); a.style.maxHeight = a.scrollHeight+'px'; }
-}
-
-function applyI18n(lang){
-  const dict = I18N[lang];
-  document.querySelectorAll('[data-i18n]').forEach(el=>{
-    const path = el.getAttribute('data-i18n').split('.');
-    let val = dict; path.forEach(p=>val = val && val[p]);
-    if(val!==undefined) el.innerHTML = val;
-  });
-  document.querySelectorAll('[data-i18n-ph]').forEach(el=>{
-    const path = el.getAttribute('data-i18n-ph').split('.');
-    let val = dict; path.forEach(p=>val = val && val[p]);
-    if(val!==undefined) el.setAttribute('placeholder', val);
-  });
-  renderServices(lang); renderSkills(lang); renderProcess(lang); renderWhy(lang); renderFaq(lang);
-}
-
-/* ---------------- lang / theme toggles (in-memory only) ---------------- */
-let currentLang = 'en';
-let currentTheme = 'light';
-
-document.getElementById('langToggle').addEventListener('click', ()=>{
-  currentLang = currentLang === 'en' ? 'ar' : 'en';
-  const html = document.documentElement;
-  html.lang = currentLang;
-  html.dir = currentLang === 'ar' ? 'rtl' : 'ltr';
-  document.getElementById('langToggle').textContent = currentLang.toUpperCase();
-  applyI18n(currentLang);
-});
-
-document.getElementById('themeToggle').addEventListener('click', ()=>{
-  currentTheme = currentTheme === 'light' ? 'dark' : 'light';
-  document.documentElement.setAttribute('data-theme', currentTheme === 'dark' ? 'dark' : '');
-  document.getElementById('themeToggle').textContent = currentTheme === 'dark' ? '☀' : '☾';
-});
-
-/* ---------------- RFM hero visualization ---------------- */
-(function buildRFM(){
-  const colors = ['var(--champions)','var(--loyal)','var(--potential)','var(--atrisk)','var(--sleep)'];
-  const clusters = [
-    {cx:340, cy:110, r:55, color:0, n:9},
-    {cx:120, cy:150, r:48, color:1, n:7},
-    {cx:230, cy:280, r:60, color:2, n:8},
-    {cx:360, cy:340, r:45, color:3, n:6},
-    {cx:100, cy:360, r:40, color:4, n:6},
-  ];
-  const g = document.getElementById('rfmNodes');
-  let html = '';
-  let delay = 0;
-  clusters.forEach(c=>{
-    for(let i=0;i<c.n;i++){
-      const ang = Math.random()*Math.PI*2;
-      const rad = Math.random()*c.r;
-      const x = c.cx + Math.cos(ang)*rad;
-      const y = c.cy + Math.sin(ang)*rad;
-      const size = 5 + Math.random()*7;
-      delay += 0.02 + Math.random()*0.03;
-      html += `<circle class="rfm-node" cx="${x}" cy="${y}" r="${size}" fill="${colors[c.color]}" opacity="0.9" style="animation-delay:${delay.toFixed(2)}s"></circle>`;
-    }
-  });
-  g.innerHTML = html;
-})();
-
-/* ---------------- scroll reveal ---------------- */
-const io = new IntersectionObserver((entries)=>{
-  entries.forEach(e=>{ if(e.isIntersecting){ e.target.classList.add('in'); } });
-},{threshold:0.15});
-document.querySelectorAll('.reveal').forEach(el=>io.observe(el));
-
-/* ---------------- init ---------------- */
-applyI18n('en');
-</script>
-</body>
-</html>
+    <div class="services-grid reveal">
+      <div class="service-card">
+        <div class="service-icon">01</div>
+        <h4 data-i18n="serv.s1Title">Data Cleaning &amp; SQL Querying</h4>
+        <p data-i18n="serv.s1Desc">Transforming raw, messy datasets into structured, clean database schemas using CTEs, window functions, and complex aggregations.</p>
+        <div class="del
