@@ -1,0 +1,220 @@
+@media (max-width: 1100px) {
+  :root {
+    --text-4xl: 4.5rem;
+    --space-16: 7rem;
+  }
+}
+
+
+/* =========================================================
+   TABLET
+   ========================================================= */
+
+@media (max-width: 800px) {
+  :root {
+    --text-3xl: 2.75rem;
+    --text-4xl: 3.5rem;
+    --space-16: 6rem;
+  }
+
+  /* Methodology */
+  .methodology-step {
+    grid-template-columns: 44px 1fr !important;
+    gap: var(--space-4) !important;
+  }
+
+  .methodology-step > div:nth-child(2) {
+    padding-top: 4px;
+  }
+
+  .methodology-step > div:nth-child(3) {
+    grid-column: 2;
+  }
+}
+
+
+/* =========================================================
+   MOBILE
+   ========================================================= */
+
+@media (max-width: 600px) {
+
+  :root {
+    --text-2xl: 2rem;
+    --text-3xl: 2.35rem;
+    --text-4xl: 3rem;
+    --space-12: 4.5rem;
+    --space-16: 5rem;
+  }
+
+
+  /* -------------------------------------------------------
+     GLOBAL MOBILE LAYOUT
+     ------------------------------------------------------- */
+
+  .container {
+    width: min(calc(100% - 1.5rem), var(--container));
+  }
+
+  .section {
+    padding-block: var(--space-12);
+  }
+
+
+  /* -------------------------------------------------------
+     SECTION HEADERS
+     ------------------------------------------------------- */
+
+  .section__header {
+    margin-bottom: var(--space-5);
+  }
+
+  .section__title {
+    font-size: var(--text-2xl);
+    line-height: 1.15;
+  }
+
+
+  /* -------------------------------------------------------
+     METHODOLOGY
+     ------------------------------------------------------- */
+
+  .methodology-flow {
+    margin-top: var(--space-5) !important;
+  }
+
+  /*
+     Hide the long desktop connector line.
+     Cards themselves provide the visual separation.
+  */
+
+  .methodology-flow > div[aria-hidden="true"] {
+    display: none !important;
+  }
+
+
+  /*
+     Each methodology step becomes a clean
+     two-column mobile layout:
+     
+     [01]   FRAME
+            Title
+            Question
+            Description
+            Output
+  */
+
+  .methodology-step {
+    display: grid !important;
+    grid-template-columns: 42px minmax(0, 1fr) !important;
+    gap: 12px !important;
+
+    padding: 18px 0 !important;
+
+    border-bottom: 1px solid var(--color-line);
+  }
+
+
+  /* Number circle */
+
+  .methodology-step > div:first-child {
+    width: 40px !important;
+    height: 40px !important;
+
+    font-size: 11px !important;
+
+    align-self: start;
+  }
+
+
+  /* Phase + title */
+
+  .methodology-step > div:nth-child(2) {
+    padding-top: 2px;
+    min-width: 0;
+  }
+
+
+  .methodology-step > div:nth-child(2) span {
+    margin-bottom: 5px !important;
+    font-size: 9px !important;
+    letter-spacing: .12em !important;
+  }
+
+
+  .methodology-step > div:nth-child(2) h3 {
+    font-size: 15px !important;
+    line-height: 1.35 !important;
+  }
+
+
+  /* Question + description + output */
+
+  .methodology-step > div:nth-child(3) {
+    grid-column: 2 !important;
+    min-width: 0;
+  }
+
+
+  .methodology-step > div:nth-child(3) p:first-child {
+    margin-bottom: 7px !important;
+
+    font-size: 13px !important;
+    line-height: 1.5 !important;
+  }
+
+
+  .methodology-step > div:nth-child(3) p:nth-child(2) {
+    font-size: 12px !important;
+    line-height: 1.7 !important;
+
+    max-width: none !important;
+  }
+
+
+  .methodology-step > div:nth-child(3) > div {
+    margin-top: 10px !important;
+
+    font-size: 10px !important;
+    line-height: 1.5 !important;
+  }
+
+
+  /* -------------------------------------------------------
+     METHODOLOGY SUMMARY
+     ------------------------------------------------------- */
+
+  .methodology-flow + div {
+    margin-top: var(--space-5) !important;
+
+    padding: 14px 12px !important;
+
+    gap: 7px !important;
+  }
+
+
+  .methodology-flow + div span {
+    font-size: 10px !important;
+  }
+
+
+  /* -------------------------------------------------------
+     GENERAL GRID SAFETY
+     ------------------------------------------------------- */
+
+  .grid--2,
+  .grid--3,
+  .grid--4 {
+    grid-template-columns: 1fr !important;
+  }
+
+
+  /* -------------------------------------------------------
+     TEXT / SPACING
+     ------------------------------------------------------- */
+
+  p {
+    overflow-wrap: break-word;
+  }
+
+}
