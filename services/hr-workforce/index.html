@@ -49,6 +49,374 @@
       }
     })();
   </script>
+
+<style>
+/* =========================================================
+   HR WORKFORCE — SERVICE PAGE LAYOUT
+   Scoped to this page so the other service pages stay intact.
+   ========================================================= */
+
+.service-page .service-section__heading {
+  display: grid;
+  grid-template-columns: minmax(180px, 0.35fr) minmax(0, 1fr);
+  gap: var(--space-8);
+  margin-bottom: var(--space-8);
+}
+
+.service-page .service-section__heading h2 {
+  max-width: 820px;
+  margin-bottom: var(--space-4);
+  font-size: clamp(2rem, 4vw, 3.8rem);
+}
+
+.service-page .service-section__heading > p {
+  max-width: 720px;
+  color: var(--color-muted);
+  font-size: 1.05rem;
+}
+
+.service-page .service-problem__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  border: 1px solid var(--color-line);
+  background: var(--color-line);
+}
+
+.service-page .service-card {
+  padding: var(--space-6);
+  background: var(--color-bg);
+}
+
+.service-page .service-card__number {
+  display: block;
+  margin-bottom: var(--space-5);
+  color: var(--color-accent);
+  font-family: var(--font-display);
+  font-size: var(--text-xl);
+}
+
+.service-page .service-card h3 {
+  margin-bottom: var(--space-3);
+  font-size: 1.35rem;
+}
+
+.service-page .service-card p {
+  margin-bottom: 0;
+  color: var(--color-muted);
+}
+
+.service-page .service-analysis__grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+.service-page .service-analysis__grid .service-card {
+  min-height: 190px;
+  padding: var(--space-5);
+  border: 1px solid var(--color-line);
+  border-radius: var(--radius-md);
+  background: var(--color-surface);
+  transition:
+    transform var(--duration-base) var(--ease-out),
+    border-color var(--duration-base) ease;
+}
+
+.service-page .service-analysis__grid .service-card:hover {
+  transform: translateY(-4px);
+  border-color: var(--color-accent);
+}
+
+.service-page .service-analysis__grid .service-card__number {
+  margin-bottom: var(--space-8);
+  font-family: var(--font-body);
+  font-size: var(--text-xs);
+  font-weight: 800;
+  letter-spacing: 0.1em;
+}
+
+.service-page .service-analysis__grid .service-card h3 {
+  font-size: 1.2rem;
+}
+
+.service-page .service-analysis__grid .service-card p {
+  font-size: var(--text-sm);
+}
+
+.service-page .service-deliverables__layout {
+  display: grid;
+  grid-template-columns: minmax(220px, 0.7fr) minmax(0, 1.3fr);
+  gap: clamp(var(--space-8), 8vw, var(--space-12));
+  align-items: start;
+}
+
+.service-page .service-deliverables__intro {
+  max-width: 520px;
+}
+
+.service-page .service-deliverables__intro p {
+  color: var(--color-muted);
+  font-size: 1.05rem;
+}
+
+.service-page .service-deliverables__list {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0 var(--space-5);
+}
+
+.service-page .service-deliverable {
+  display: flex;
+  gap: var(--space-4);
+  align-items: flex-start;
+  padding: var(--space-5) 0;
+  border-top: 1px solid var(--color-line);
+}
+
+.service-page .service-deliverable > span {
+  flex: 0 0 auto;
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--color-accent);
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: var(--color-accent);
+  font-size: 0.7rem;
+}
+
+.service-page .service-deliverable strong {
+  display: block;
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.4;
+}
+
+.service-page .service-process__steps {
+  display: grid;
+  grid-template-columns: repeat(6, minmax(0, 1fr));
+  border-top: 1px solid var(--color-line);
+  border-bottom: 1px solid var(--color-line);
+}
+
+.service-page .service-process__step {
+  position: relative;
+  min-height: 150px;
+  padding: var(--space-5);
+  border-right: 1px solid var(--color-line);
+}
+
+.service-page .service-process__step:last-child {
+  border-right: 0;
+}
+
+.service-page .service-process__step > span {
+  display: block;
+  margin-bottom: var(--space-8);
+  color: var(--color-accent);
+  font-size: var(--text-xs);
+  font-weight: 800;
+}
+
+.service-page .service-process__step strong {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  font-weight: 700;
+}
+
+.service-page .service-process__step p {
+  margin: 0;
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+  line-height: 1.6;
+}
+
+.service-page .service-proof__card {
+  height: 100%;
+}
+
+.service-page .service-proof__content {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.service-page .service-proof__content h3 {
+  margin-bottom: var(--space-4);
+  font-size: clamp(1.8rem, 3vw, 2.8rem);
+}
+
+.service-page .service-proof__content p {
+  color: var(--color-muted);
+}
+
+.service-page .service-proof__note {
+  padding-top: var(--space-4);
+  border-top: 1px solid var(--color-line);
+  font-size: var(--text-sm);
+}
+
+.service-page .service-proof__metrics {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 1px;
+  margin-top: var(--space-6);
+  border: 1px solid var(--color-line);
+  background: var(--color-line);
+}
+
+.service-page .service-proof__metric {
+  min-height: 130px;
+  padding: var(--space-5);
+  background: var(--color-bg);
+}
+
+.service-page .service-proof__metric > span {
+  display: block;
+  margin-bottom: var(--space-3);
+  color: var(--color-accent);
+  font-size: var(--text-xs);
+  font-weight: 800;
+  letter-spacing: 0.12em;
+}
+
+.service-page .service-proof__metric strong {
+  display: block;
+  margin-bottom: var(--space-2);
+  font-family: var(--font-display);
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+.service-page .service-proof__metric small {
+  color: var(--color-muted);
+  font-size: var(--text-sm);
+}
+
+.service-page .service-enables__grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--space-5);
+}
+
+.service-page .service-enable {
+  padding-top: var(--space-5);
+  border-top: 2px solid var(--color-accent);
+}
+
+.service-page .service-enable > span {
+  display: block;
+  margin-bottom: var(--space-4);
+  color: var(--color-accent);
+  font-size: var(--text-xs);
+  font-weight: 800;
+}
+
+.service-page .service-enable h3 {
+  margin-bottom: var(--space-2);
+  font-size: 1.25rem;
+}
+
+.service-page .service-enable p {
+  margin-bottom: 0;
+  color: var(--color-muted);
+}
+
+/* Tablet */
+@media (max-width: 900px) {
+  .service-page .service-problem__grid,
+  .service-page .service-analysis__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .service-page .service-deliverables__layout {
+    grid-template-columns: 1fr;
+  }
+
+  .service-page .service-process__steps {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .service-page .service-process__step:nth-child(3) {
+    border-right: 0;
+  }
+
+  .service-page .service-process__step:nth-child(n + 4) {
+    border-top: 1px solid var(--color-line);
+  }
+
+  .service-page .service-enables__grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* Mobile */
+@media (max-width: 600px) {
+  .service-page .service-section__heading {
+    grid-template-columns: 1fr;
+    gap: var(--space-3);
+    margin-bottom: var(--space-6);
+  }
+
+  .service-page .service-section__heading h2 {
+    font-size: var(--text-2xl);
+  }
+
+  .service-page .service-problem__grid,
+  .service-page .service-analysis__grid,
+  .service-page .service-deliverables__list,
+  .service-page .service-enables__grid {
+    grid-template-columns: 1fr;
+  }
+
+  .service-page .service-analysis__grid .service-card {
+    min-height: auto;
+  }
+
+  .service-page .service-process__steps {
+    grid-template-columns: 1fr;
+  }
+
+  .service-page .service-process__step {
+    min-height: auto;
+    padding: 1.25rem var(--space-2);
+    border-right: 0;
+    border-bottom: 1px solid var(--color-line);
+  }
+
+  .service-page .service-process__step:last-child {
+    border-bottom: 0;
+  }
+
+  .service-page .service-process__step > span {
+    margin-bottom: 1rem;
+  }
+
+  .service-page .service-process__step strong {
+    font-size: 1rem;
+    line-height: 1.3;
+  }
+
+  .service-page .service-process__step p {
+    max-width: 100%;
+    font-size: 0.82rem;
+    line-height: 1.5;
+  }
+
+  .service-page .service-proof__metrics {
+    grid-template-columns: 1fr;
+  }
+
+  .service-page .service-proof__metric {
+    min-height: auto;
+  }
+}
+</style>
+
 </head>
 
 <body class="service-page">
@@ -381,7 +749,7 @@
 
           <div class="service-process__step">
             <span>01</span>
-            <strong>HR Data</strong>
+         <strong>HR Data</strong>
             <p>Start with the available workforce data and business context.</p>
           </div>
 
@@ -588,7 +956,7 @@
   </footer>
 
   <script>
-    const themeToggle = document.getElementById("theme-toggle");
+    const themeToggle = document.getElementById("service-theme-toggle");
 
     themeToggle?.addEventListener("click", () => {
       const root = document.documentElement;
@@ -605,4 +973,4 @@
   </script>
 
 </body>
-</html>
+  </html>
