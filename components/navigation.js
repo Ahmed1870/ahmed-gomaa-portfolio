@@ -8,7 +8,7 @@ export function renderNavigation() {
         <a class="site-nav__brand" href="#hero" aria-label="Ahmed Gomaa home">
           <svg class="site-nav__logo" width="34" height="34" viewBox="0 0 34 34" fill="none" aria-hidden="true">
             <circle cx="17" cy="17" r="13.5" stroke="var(--color-line)" stroke-width="1.6"/>
-            <circle cx="17" cy="17" r="13.5" stroke="var(--color-accent)" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="64 85" transform="rotate(-90 17 17)"/>
+           <circle class="site-nav__logo-arc" cx="17" cy="17" r="13.5" stroke="var(--color-accent)" stroke-width="1.6" stroke-linecap="round" stroke-dasharray="64 85" transform="rotate(-90 17 17)"/>
             <text x="17" y="18" text-anchor="middle" dominant-baseline="middle" font-family="Georgia, 'Times New Roman', serif" font-size="12" font-weight="700" fill="var(--color-ink)">AG</text>
           </svg>
           <span class="site-nav__brand-text">Ahmed Gomaa<span>.</span></span>
