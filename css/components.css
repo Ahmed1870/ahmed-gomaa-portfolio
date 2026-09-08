@@ -272,6 +272,26 @@
   flex-shrink: 0;
 }
 
+.site-nav__logo-arc {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: logo-arc-spin 7s linear infinite;
+}
+
+@keyframes logo-arc-spin {
+  from {
+    transform: rotate(-90deg);
+  }
+  to {
+    transform: rotate(270deg);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .site-nav__logo-arc {
+    animation: none;
+  }
+}
 .site-nav__brand-text > span {
   color: var(--color-accent);
 }
