@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://ahmed1870.github.io/ahmed-gomaa-portfolio/sitemap.xml
