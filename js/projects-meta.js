@@ -5,6 +5,10 @@ export const projectsMeta = {
       "A production-style retail audit focused on identifying margin leakage across promotions, returns, customer identity, and multi-channel transaction data.",
     tags: ["SQL Server", "Power BI", "DAX"],
     accent: "#3b82f6",
+    service: {
+      label: "Sales & Retail Analytics",
+      url: "./services/sales-retail/"
+    },
 
     challenge:
       "The audit addresses margin erosion caused by promotional abuse and suspicious return activity across Store, Web, Mobile App, and Marketplace channels. The source data also contains realistic quality issues such as mixed timestamps, customer identity noise, categorical drift, orphan returns, and multi-currency transactions.",
@@ -40,6 +44,10 @@ export const projectsMeta = {
       "An end-to-end workforce analytics project designed to understand employee attrition patterns and identify workforce segments that require targeted retention attention.",
     tags: ["Excel", "Power Query", "Power BI"],
     accent: "#10b981",
+    service: {
+      label: "HR & Workforce Analytics",
+      url: "./services/hr-workforce/"
+    },
 
     challenge:
       "The analysis focuses on understanding why employees leave and which workforce segments require targeted intervention. The workflow moves from data validation and SQL analysis to Python exploratory analysis and Power BI reporting.",
@@ -72,6 +80,10 @@ export const projectsMeta = {
       "Behavioral customer segmentation using Recency, Frequency, and Monetary value to identify customer groups and support differentiated retention and marketing strategies.",
     tags: ["Python", "Pandas", "Data Modeling"],
     accent: "#8b5cf6",
+    service: {
+      label: "Customer & Retention Analytics",
+      url: "./services/customer-retention/"
+    },
 
     challenge:
       "The business has a large customer base but lacks meaningful segmentation. Treating customers uniformly can waste marketing budget, overlook loyal customers, and allow disengaged customers to leave unnoticed.",

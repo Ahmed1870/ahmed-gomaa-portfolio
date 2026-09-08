@@ -123,7 +123,10 @@ export function renderProjects() {
                     ${meta.tags.map(t => `<span class="tag">${t}</span>`).join('')}
                   </div>
 
-                  <div style="margin-top: var(--space-2);">
+                  <div
+                    class="project-card__actions"
+                    style="margin-top: var(--space-2); display:flex; flex-wrap:wrap; gap:var(--space-2);"
+                  >
                     <a
                       href="#"
                       class="site-button"
@@ -131,6 +134,15 @@ export function renderProjects() {
                     >
                       Explore Case Study
                     </a>
+
+                    ${meta.service ? `
+                      <a
+                        href="${meta.service.url}"
+                        class="site-button site-button--secondary"
+                      >
+                        ${meta.service.label}
+                      </a>
+                    ` : ''}
                   </div>
 
                 </div>

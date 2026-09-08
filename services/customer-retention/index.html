@@ -1,0 +1,363 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+
+  <script>
+    (function () {
+      var stored = localStorage.getItem('theme');
+      var theme = stored || (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      if (theme === 'dark') {
+        document.documentElement.setAttribute('data-theme', 'dark');
+      }
+    })();
+  </script>
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Customer Segmentation & Retention Analytics | Ahmed Gomaa</title>
+  <meta name="description" content="Behavioral customer segmentation using RFM analysis to identify high-value customer groups, prevent churn, and optimize retention strategies.">
+  <meta name="author" content="Ahmed Gomaa">
+
+  <link rel="icon" type="image/svg+xml" href="../../assets/favicon.svg">
+  <link rel="icon" type="image/x-icon" href="../../assets/favicon.ico">
+  <link rel="apple-touch-icon" href="../../assets/apple-touch-icon.png">
+
+  <link rel="canonical" href="https://ahmed1870.github.io/ahmed-gomaa-portfolio/services/customer-retention/">
+
+  <meta property="og:title" content="Customer Segmentation & Retention Analytics | Ahmed Gomaa">
+  <meta property="og:description" content="Turn transactional customer data into actionable RFM segments, retention triggers, and LTV growth strategies.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://ahmed1870.github.io/ahmed-gomaa-portfolio/services/customer-retention/">
+  <meta property="og:image" content="https://ahmed1870.github.io/ahmed-gomaa-portfolio/assets/og-image.png">
+
+  <link rel="stylesheet" href="../../css/tokens.css">
+  <link rel="stylesheet" href="../../css/base.css">
+  <link rel="stylesheet" href="../../css/layout.css">
+  <link rel="stylesheet" href="../../css/components.css">
+  <link rel="stylesheet" href="../../css/dashboards.css">
+  <link rel="stylesheet" href="../../css/responsive.css">
+  <link rel="stylesheet" href="../../css/services.css">
+</head>
+
+<body class="service-page">
+
+  <header class="service-header">
+    <div class="container">
+      <nav class="service-nav" aria-label="Service page navigation">
+
+        <a class="service-nav__brand" href="../../" aria-label="Ahmed Gomaa home">
+          <span class="service-nav__logo">AG</span>
+          <span>Ahmed Gomaa<span>.</span></span>
+        </a>
+
+        <div class="service-nav__links">
+          <a href="../../#services">Services</a>
+          <a href="../../#work">Work</a>
+          <a href="../../#process">Process</a>
+          <a href="../../#contact">Contact</a>
+        </div>
+
+        <button
+          class="service-nav__theme"
+          id="theme-toggle"
+          type="button"
+          aria-label="Toggle dark mode"
+        >
+          ◐
+        </button>
+
+        <a class="service-nav__cta" href="../../#contact">
+          Let's talk
+        </a>
+
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="service-hero">
+      <div class="container">
+
+        <div class="service-hero__grid">
+
+          <div>
+
+            <span class="service-eyebrow">
+              Service 03 · Customer & Retention Analytics
+            </span>
+
+            <h1>
+              Turn customer transaction data into
+              <em>clear retention strategy.</em>
+            </h1>
+
+            <p class="service-hero__lead">
+              I help e-commerce brands and customer-centric businesses uncover
+              high-value behavioral segments, catch churn risk early, and turn
+              purchase history into targeted marketing strategy.
+            </p>
+
+            <div class="service-hero__actions">
+              <a
+                href="../../#contact"
+                class="service-button"
+              >
+                Analyze Your Customer Data
+              </a>
+
+              <a
+                href="../../#work"
+                class="service-button service-button--secondary"
+              >
+                View the RFM case study
+              </a>
+            </div>
+
+          </div>
+
+          <aside class="service-hero__panel">
+
+            <div class="service-hero__panel-label">
+              Built for
+            </div>
+
+            <strong>
+              Growth Teams · E-Commerce Brands · Marketing Leads
+            </strong>
+
+            <p>
+              Especially useful when customer transaction data exists, but the
+              business needs a clearer analytical view of customer behavior,
+              retention opportunities, and where marketing attention should go next.
+            </p>
+
+          </aside>
+
+        </div>
+
+        <div class="service-hero__line"></div>
+
+      </div>
+    </section>
+
+    <!-- PROBLEM -->
+    <section class="service-section service-problem section">
+      <div class="container">
+        <div class="service-section__header">
+          <span class="service-eyebrow">THE PROBLEM</span>
+          <h2 class="service-section__title">Treating all customers equally burns acquisition budget and hides churn.</h2>
+        </div>
+        <div class="service-problem__grid">
+          <div class="service-problem__card">
+            <h3>One-Size-Fits-All Campaigns</h3>
+            <p>Sending identical discounts to loyal spenders and inactive buyers degrades margin without driving incremental incremental lifetime value.</p>
+          </div>
+          <div class="service-problem__card">
+            <h3>Silent High-Value Churn</h3>
+            <p>Top-tier accounts often stop purchasing quietly. Without recency monitoring, businesses only notice churn after accounts are cold.</p>
+          </div>
+          <div class="service-problem__card">
+            <h3>Misallocated Marketing Spend</h3>
+            <p>Budget is wasted re-engaging low-intent one-time buyers while high-potential loyalists are left without re-engagement paths.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ANALYSIS -->
+    <section class="service-section service-analysis section">
+      <div class="container">
+        <div class="service-section__header">
+          <span class="service-eyebrow">ANALYTICAL APPROACH</span>
+          <h2 class="service-section__title">From raw order logs to behavioral segments.</h2>
+        </div>
+        <div class="service-analysis__grid">
+          <div class="service-analysis__card">
+            <div class="service-analysis__num">01</div>
+            <h3>RFM Scoring Engine</h3>
+            <p>Quantifying Recency (days since last transaction), Frequency (total orders), and Monetary value (total margin) per customer profile.</p>
+          </div>
+          <div class="service-analysis__card">
+            <div class="service-analysis__num">02</div>
+            <h3>Behavioral Grouping</h3>
+            <p>Classifying accounts into actionable segments: Champions, Potential Loyalists, At Risk, Hibernating, and Lost accounts.</p>
+          </div>
+          <div class="service-analysis__card">
+            <div class="service-analysis__num">03</div>
+            <h3>LTV & Churn Modeling</h3>
+            <p>Evaluating segment profitability, repeat purchase frequency, and risk probability to focus re-engagement efforts where ROI is highest.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DELIVERABLES -->
+    <section class="service-section service-deliverables section">
+      <div class="container">
+        <div class="service-section__header">
+          <span class="service-eyebrow">DELIVERABLES</span>
+          <h2 class="service-section__title">What you receive.</h2>
+        </div>
+        <div class="service-deliverables__list">
+          <div class="service-deliverable__item">
+            <div class="service-deliverable__icon">✓</div>
+            <div>
+              <h3>Segmented Customer Dataset</h3>
+              <p>Cleaned, categorized customer table ready for immediate integration into CRM or email marketing platforms.</p>
+            </div>
+          </div>
+          <div class="service-deliverable__item">
+            <div class="service-deliverable__icon">✓</div>
+            <div>
+              <h3>Interactive RFM Dashboard</h3>
+              <p>Dynamic BI reporting view to monitor segment distributions, LTV trends, and churn warnings month-over-month.</p>
+            </div>
+          </div>
+          <div class="service-deliverable__item">
+            <div class="service-deliverable__icon">✓</div>
+            <div>
+              <h3>Actionable Campaign Matrix</h3>
+              <p>Clear marketing recommendations specifying targeted messages, win-back timing, and loyalty incentives per segment.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section class="service-section service-process section">
+      <div class="container">
+        <div class="service-section__heading">
+          <span class="service-eyebrow">HOW I WORK</span>
+          <h2>A practical path from <em>transaction logs to retention triggers.</em></h2>
+        </div>
+        <div class="service-process__steps">
+          <div class="service-process__step">
+            <span>01</span>
+            <strong>Data Ingestion</strong>
+            <p>Consolidate transactional history, customer IDs, timestamps, and order values.</p>
+          </div>
+          <div class="service-process__step">
+            <span>02</span>
+            <strong>Data Validation</strong>
+            <p>Audit order anomalies, duplicate records, and normalize currency across transaction channels.</p>
+          </div>
+          <div class="service-process__step">
+            <span>03</span>
+            <strong>RFM Computation</strong>
+            <p>Compute relative percentile metrics for Recency, Frequency, and Monetary scores using Python/Pandas.</p>
+          </div>
+          <div class="service-process__step">
+            <span>04</span>
+            <strong>Segment Profiling</strong>
+            <p>Group individual customer scores into distinct behavioral cohorts and calculate segment baseline KPIs.</p>
+          </div>
+          <div class="service-process__step">
+            <span>05</span>
+            <strong>BI Integration</strong>
+            <p>Build dynamic visualizations and filterable drill-downs for operational marketing review.</p>
+          </div>
+          <div class="service-process__step">
+            <span>06</span>
+            <strong>Action Areas</strong>
+            <p>Deliver prioritized campaign recommendations tailored to save high-value accounts at risk.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROOF -->
+    <section class="service-section service-proof section">
+      <div class="container">
+        <div class="service-proof__card">
+          <span class="service-eyebrow">PROOF OF WORK</span>
+          <h2>RFM Customer Segmentation Audit</h2>
+          <p>A production-style behavioral analysis classifying 48,250 retail customers into clear retention cohorts to optimize marketing ROI.</p>
+
+          <div class="service-proof__stats">
+            <div class="service-proof__stat">
+              <span class="service-proof__number">48,250</span>
+              <span class="service-proof__label">Analyzed Customers</span>
+            </div>
+            <div class="service-proof__stat">
+              <span class="service-proof__number">8,420</span>
+              <span class="service-proof__label">Champions ($1,450 LTV)</span>
+            </div>
+            <div class="service-proof__stat">
+              <span class="service-proof__number">5,110</span>
+              <span class="service-proof__label">At-Risk Customers</span>
+            </div>
+            <div class="service-proof__stat">
+              <span class="service-proof__number">$620</span>
+              <span class="service-proof__label">Average Overall LTV</span>
+            </div>
+          </div>
+
+          <div class="service-proof__action">
+            <a href="../../#work" class="btn btn--secondary">Explore the RFM Case Study & Dashboard</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ENABLES -->
+    <section class="service-section service-enables section">
+      <div class="container">
+        <div class="service-section__header">
+          <span class="service-eyebrow">WHO THIS IS FOR</span>
+          <h2 class="service-section__title">Designed for businesses driven by repeat orders.</h2>
+        </div>
+        <div class="service-enables__grid">
+          <div class="service-enables__card">
+            <h3>E-Commerce & DTC Brands</h3>
+            <p>Identify VIP spenders to offer tailored perks while automating win-back flows for slipping customers.</p>
+          </div>
+          <div class="service-enables__card">
+            <h3>Subscription & Retail Businesses</h3>
+            <p>Understand purchase cycles, baseline repeat behavior, and curb subscriber drop-off proactively.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="service-cta section">
+      <div class="container">
+        <div class="service-cta__card">
+          <h2>Ready to unlock retention value from your transaction data?</h2>
+          <p>Let's turn your raw order history into actionable customer segments and clearer marketing ROI.</p>
+          <a href="../../#contact" class="btn btn--primary">Discuss Your Data</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="service-footer">
+    <div class="container">
+      <span>Ahmed Gomaa · Data Analyst</span>
+      <a href="../../">Back to portfolio</a>
+    </div>
+  </footer>
+
+  <script>
+    const themeToggle = document.getElementById("theme-toggle");
+
+    themeToggle?.addEventListener("click", () => {
+      const root = document.documentElement;
+      const isDark = root.getAttribute("data-theme") === "dark";
+
+      if (isDark) {
+        root.removeAttribute("data-theme");
+        localStorage.setItem("theme", "light");
+      } else {
+        root.setAttribute("data-theme", "dark");
+        localStorage.setItem("theme", "dark");
+      }
+    });
+  </script>
+
+</body>
+</html>
